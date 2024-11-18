@@ -1,0 +1,19 @@
+.bg-primary {
+  color: var(--mantine-color-primary);
+  background-color: var(--mantine-color-primary);
+}
+
+body {
+  color: #333;
+}
+
+.page-description {
+  margin-bottom: 2rem;
+  color: var(--mantine-color-gray-6);
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}

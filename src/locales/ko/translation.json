@@ -1,0 +1,12 @@
+{
+  "welcome": "OurHealth 회원가입",
+  "email": "이메일",
+  "emailPlaceholder": "이메일을 입력해주세요",
+  "name": "이름",
+  "namePlaceholder": "이름을 입력해주세요",
+  "phone_number": "전화번호",
+  "create_password": "비밀번호 생성",
+  "passwordPlaceholder": "비밀번호를 입력해주세요",
+  "agree_terms": "서비스 약관과 개인정보 보호정책에 동의합니다",
+  "register": "회원가입"
+}

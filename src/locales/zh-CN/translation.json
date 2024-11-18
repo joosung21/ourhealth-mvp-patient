@@ -1,0 +1,12 @@
+{
+  "welcome": "欢迎来到 OurHealth",
+  "email": "电子邮箱",
+  "emailPlaceholder": "请输入您的电子邮箱",
+  "name": "姓名",
+  "namePlaceholder": "请输入您的姓名",
+  "phone_number": "电话号码",
+  "create_password": "创建密码",
+  "passwordPlaceholder": "请输入您的密码",
+  "agree_terms": "我同意服务条款和隐私政策",
+  "register": "注册"
+}

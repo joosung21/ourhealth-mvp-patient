@@ -1,0 +1,24 @@
+.soundBarWrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 80px;
+}
+
+.soundBar {
+  width: 8px;
+  background-color: #478c8c;
+  margin: 0 4px;
+  animation: barAnimation 1s infinite;
+  border-radius: 4px;
+}
+
+@keyframes barAnimation {
+  0%,
+  100% {
+    height: 20%;
+  }
+  50% {
+    height: 80%;
+  }
+}

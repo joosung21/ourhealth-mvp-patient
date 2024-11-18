@@ -1,0 +1,12 @@
+{
+  "welcome": "Welcome to OurHealth",
+  "email": "Email",
+  "emailPlaceholder": "Enter your email",
+  "name": "Name",
+  "namePlaceholder": "Enter your name",
+  "phone_number": "Phone number",
+  "create_password": "Create password",
+  "passwordPlaceholder": "Enter your password",
+  "agree_terms": "I agree to the Terms of Service and Privacy Policy",
+  "register": "Register"
+}
