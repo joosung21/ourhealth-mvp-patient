@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
+import Dashboard from '@/pages/Dashboard/Dashboard.page';
 import Accordion from '@/samples/Accordion';
 import Alert from '@/samples/Alert';
 import Card from '@/samples/Card';
@@ -22,22 +23,42 @@ import Typography from '../samples/Typography';
 import ForgotPassword from './Auth/ForgotPassword';
 import Login from './Auth/Login';
 import Register from './Auth/Register';
+import RegisterComplete from './Auth/Register/RegisterComplete';
+import RegisterEntry from './Auth/Register/RegisterEntry';
+import RegisterInformation from './Auth/Register/RegisterInformation';
+import RegisterLanguage from './Auth/Register/RegisterLanguage';
+import RegisterName from './Auth/Register/RegisterName';
 import Layout from './Layouts/Layout';
+import MobileWrapper from './MobileLayout/MobileWrapper';
 import NotFound from './NotFound';
+import Splash from './Splash';
 
 export default function AppRoutes() {
   return (
     <Routes>
       {/* Not Found Route */}
       <Route path="*" element={<NotFound />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Navigate to="/splash" replace />} />
+
+      {/* <Route path="/login" element={<Login />} /> */}
+      {/* <Route path="/register" element={<Register />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} /> */}
+
+      {/* Mobile Wrapper */}
+      <Route element={<MobileWrapper />}></Route>
       <Route path="/register" element={<Register />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/splash" element={<Splash />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register-entry" element={<RegisterEntry />} />
+      <Route path="/register-language" element={<RegisterLanguage />} />
+      <Route path="/register-name" element={<RegisterName />} />
+      <Route path="/register-information" element={<RegisterInformation />} />
+      <Route path="/register-complete" element={<RegisterComplete />} />
+      <Route path="/dashboard" element={<Dashboard />} />
 
       {/* Layout Wrapper */}
       <Route element={<Layout />}>
         {/* Redirect */}
-        <Route path="/" element={<Navigate to="/login" replace />} />
 
         {/* Main Routes */}
         <Route path="/todo" element={<Todo />} />

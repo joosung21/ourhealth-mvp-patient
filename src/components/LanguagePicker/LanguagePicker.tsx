@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Combobox, Group, InputBase, Select, useCombobox } from '@mantine/core';
+import { Combobox, Group, InputBase, useCombobox } from '@mantine/core';
 import { useLanguageStore } from '@/stores/useLanguageStore';
 
 const languages = [
-  { label: 'English', value: 'en', flagClassName: 'gb' },
+  { label: 'English (Canada)', value: 'en', flagClassName: 'ca' },
   { label: 'Français', value: 'fr', flagClassName: 'fr' },
   { label: '한국어', value: 'ko', flagClassName: 'kr' },
   { label: '中文 (简体)', value: 'zh-CN', flagClassName: 'cn' },
@@ -21,7 +21,7 @@ export default function LanguagePicker() {
   const options = languages.map((item) => (
     <Combobox.Option value={item.value} key={item.value}>
       <Group>
-        <div className={`fi fi-${item.flagClassName} rounded`} />
+        <div className={`fi fi-${item.flagClassName} shadow`} />
         {item.label}
       </Group>
     </Combobox.Option>
@@ -38,6 +38,7 @@ export default function LanguagePicker() {
   return (
     <Combobox
       store={combobox}
+      size="md"
       onOptionSubmit={(val) => {
         setValue(val);
         changeLanguage(val);
@@ -49,12 +50,13 @@ export default function LanguagePicker() {
           component="button"
           type="button"
           pointer
+          size="md"
           rightSection={<Combobox.Chevron />}
           rightSectionPointerEvents="none"
           onClick={() => combobox.toggleDropdown()}
         >
           <Group>
-            <div className={`fi fi-${getFlag(value || '')} rounded`} />
+            <div className={`fi fi-${getFlag(value || '')} shadow`} />
             {getLabel(value || '')}
           </Group>
         </InputBase>

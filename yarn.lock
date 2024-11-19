@@ -899,9 +899,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/core@npm:7.13.5":
-  version: 7.13.5
-  resolution: "@mantine/core@npm:7.13.5"
+"@mantine/core@npm:7.14.1":
+  version: 7.14.1
+  resolution: "@mantine/core@npm:7.14.1"
   dependencies:
     "@floating-ui/react": "npm:^0.26.27"
     clsx: "npm:^2.1.1"
@@ -910,25 +910,25 @@ __metadata:
     react-textarea-autosize: "npm:8.5.4"
     type-fest: "npm:^4.26.1"
   peerDependencies:
-    "@mantine/hooks": 7.13.5
+    "@mantine/hooks": 7.14.1
     react: ^18.x || ^19.x
     react-dom: ^18.x || ^19.x
-  checksum: 10c0/1cb11eb9ca18f3b602350a60405b54b33e1a83ef7b17512ff8a21a3629e5f31c30255a523e1a36c546970fa7e0467cf5cd2ced1bbb440105790635de4ff08e90
+  checksum: 10c0/0226848f77db72bc1640f898091447e8b1a6f38f5c47c173858443fad991f062f40f68eae67625164e924035467cc616d91bdbf59c21fa093d9b26e4e73d6103
   languageName: node
   linkType: hard
 
-"@mantine/dates@npm:^7.14.0":
-  version: 7.14.0
-  resolution: "@mantine/dates@npm:7.14.0"
+"@mantine/dates@npm:^7.14.1":
+  version: 7.14.1
+  resolution: "@mantine/dates@npm:7.14.1"
   dependencies:
     clsx: "npm:^2.1.1"
   peerDependencies:
-    "@mantine/core": 7.14.0
-    "@mantine/hooks": 7.14.0
+    "@mantine/core": 7.14.1
+    "@mantine/hooks": 7.14.1
     dayjs: ">=1.0.0"
     react: ^18.x || ^19.x
     react-dom: ^18.x || ^19.x
-  checksum: 10c0/438df05e69100ee29e5642ffb56e5ecca6bf1689f205c1f945505f79b58703eedf637513e96427cad7eb6908384b8c346b1785df9c7bd07e82874a21dc450f6b
+  checksum: 10c0/63d8be42c16cb4908bd7bfc7e06e66abd10c32160ebf81aa4a27fad71fa240c7888d8ad2f9c65e3eb449a044f49e80ec2b574081070b8f009f988afb44482aee
   languageName: node
   linkType: hard
 
@@ -968,38 +968,38 @@ __metadata:
   linkType: hard
 
 "@mantine/modals@npm:^7.14.0":
-  version: 7.14.0
-  resolution: "@mantine/modals@npm:7.14.0"
+  version: 7.14.1
+  resolution: "@mantine/modals@npm:7.14.1"
   peerDependencies:
-    "@mantine/core": 7.14.0
-    "@mantine/hooks": 7.14.0
+    "@mantine/core": 7.14.1
+    "@mantine/hooks": 7.14.1
     react: ^18.x || ^19.x
     react-dom: ^18.x || ^19.x
-  checksum: 10c0/0877484ac549e8b8c1e6fb22d37f51c7cc1537fe31beee6a5448fca9eca02e76046bf9acdb22788022cc791f495ccd95766d1fead0ab71b4c5fe04c58ffc6cf3
+  checksum: 10c0/a433f4f71588dd8eae1b4baf7ef3ae1fe15ba698e956a6974a742bbdb7175be0ff4e7d17bc3494ee09d045c4fb36f530a0e050e9b5feebfdece22430fa7f1043
   languageName: node
   linkType: hard
 
 "@mantine/notifications@npm:^7.14.0":
-  version: 7.14.0
-  resolution: "@mantine/notifications@npm:7.14.0"
+  version: 7.14.1
+  resolution: "@mantine/notifications@npm:7.14.1"
   dependencies:
-    "@mantine/store": "npm:7.14.0"
+    "@mantine/store": "npm:7.14.1"
     react-transition-group: "npm:4.4.5"
   peerDependencies:
-    "@mantine/core": 7.14.0
-    "@mantine/hooks": 7.14.0
+    "@mantine/core": 7.14.1
+    "@mantine/hooks": 7.14.1
     react: ^18.x || ^19.x
     react-dom: ^18.x || ^19.x
-  checksum: 10c0/d178a578239de7d503b37bb6cc1dee459c7e54091f308fef5f7032a02afabae1859d5477db8db98629d150a80e4d0e445af65f32d3b2ff21c3fc17fbeb8a7548
+  checksum: 10c0/a2523d4103b70bff8ee7f7e4dc235fb1c79ec538f9ae11138a40c4ab7e6a80f09140282b90aa2b6d0a44a5e49ce05a4525904d0ea774d4c2565e6d99249358ec
   languageName: node
   linkType: hard
 
-"@mantine/store@npm:7.14.0":
-  version: 7.14.0
-  resolution: "@mantine/store@npm:7.14.0"
+"@mantine/store@npm:7.14.1":
+  version: 7.14.1
+  resolution: "@mantine/store@npm:7.14.1"
   peerDependencies:
     react: ^18.x || ^19.x
-  checksum: 10c0/528d0e1a568ba8944159c7a4931d89be2ab9ee7d3f763c819349227755366af72dda073bda202f26bcc9b043c4c40114efdd155058b9e827c87339356cfb4935
+  checksum: 10c0/94c346ec2c699161f1707e5de4b7ae101ce7643b5f6ec0b6cc873d902fe983c76a3c563286136a040687ef4e880a41b9a1044f2b671029790f44c4674278169e
   languageName: node
   linkType: hard
 
@@ -4675,8 +4675,8 @@ __metadata:
     "@hello-pangea/dnd": "npm:^17.0.0"
     "@heroicons/react": "npm:^2.1.5"
     "@ianvs/prettier-plugin-sort-imports": "npm:^4.3.1"
-    "@mantine/core": "npm:7.13.5"
-    "@mantine/dates": "npm:^7.14.0"
+    "@mantine/core": "npm:7.14.1"
+    "@mantine/dates": "npm:^7.14.1"
     "@mantine/dropzone": "npm:^7.14.1"
     "@mantine/form": "npm:^7.14.0"
     "@mantine/hooks": "npm:7.13.5"

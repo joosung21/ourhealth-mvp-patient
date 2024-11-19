@@ -1,53 +1,75 @@
-import { Outlet } from 'react-router-dom';
-import { AppShell, Burger, Group, Image, Text, useMantineTheme } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import logo from '@/assets/logo.svg';
-import { useCounterStore } from '@/stores/useCounterStore';
-import AvatarDropdown from './AvatarDropdown';
-import LavLinks from './NavLinks';
-import ScrollToTop from './ScrollToTop';
+import {
+  Anchor,
+  Button,
+  Checkbox,
+  Divider,
+  PasswordInput,
+  Select,
+  Stack,
+  Text,
+  TextInput,
+} from '@mantine/core';
+import { useForm } from '@mantine/form';
+import COUNTRY_CODES from '@/constants/countrycode.json';
 
-export default function Layout() {
-  const count = useCounterStore((state) => state.count);
-  const [opened, { toggle }] = useDisclosure();
-  const theme = useMantineTheme();
+type CountryCode = {
+  name: string;
+  dial_code: string;
+  code: string;
+};
+
+// Select에서 사용할 데이터로 변환
+const COUNTRY_ITEMS = (COUNTRY_CODES as CountryCode[]).map((item) => ({
+  value: item.code, // value는 국가 코드
+  label: `${item.name} (${item.dial_code})`, // 드롭다운에 표시될 텍스트
+  dial_code: item.dial_code, // 다이얼 코드
+}));
+
+const INIT_VALUES = {
+  dialCode: 'CA',
+  mobileNumber: '',
+};
+
+export default function Login() {
+  const form = useForm({
+    mode: 'uncontrolled',
+    initialValues: INIT_VALUES,
+  });
 
   return (
-    <AppShell
-      style={{ minWidth: '300px' }}
-      header={{ height: 60 }}
-      navbar={{ width: 260, breakpoint: 'sm', collapsed: { mobile: !opened } }}
-      padding="md"
-    >
-      <AppShell.Header style={{ minWidth: '300px' }}>
-        <Group h="100%" px="md" justify="space-between">
-          <Group>
-            <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-            <Image
-              src={logo}
-              alt="OurHealth logo"
-              w={200}
-              onClick={() => (window.location.href = '/')}
-              className="cursor-pointer"
-            />
-          </Group>
-          {count !== 0 && (
-            <Text c="red" fw={700} size="xl">
-              Store: {count}
-            </Text>
-          )}
-          <AvatarDropdown />
-        </Group>
-      </AppShell.Header>
+    <>
+      <div className="h-12" />
+      <form onSubmit={form.onSubmit((values) => alert(JSON.stringify(values, null, 2)))}>
+        <Stack gap="xs">
+          <div className="text-h1 text-center p-[10px]">Welcome to OurHealth</div>
+          <Select
+            placeholder="Select your country"
+            data={COUNTRY_ITEMS}
+            value={form.values.dialCode}
+            onChange={(value) => form.setFieldValue('dialCode', value || '')}
+          />
+        </Stack>
+      </form>
 
-      <AppShell.Navbar className="overflow-y-auto pb-10">
-        <LavLinks />
-      </AppShell.Navbar>
+      <Divider label="Or continue with email" labelPosition="center" my="lg" />
 
-      <AppShell.Main className="bg-slate-50 max-sm:px-0 pb-10">
-        <Outlet />
-        <ScrollToTop />
-      </AppShell.Main>
-    </AppShell>
+      <TextInput label="Email address" placeholder="hello@gmail.com" size="md" />
+      <PasswordInput label="Password" placeholder="Your password" mt="md" size="md" />
+      <Anchor href="/forgot-password" pt={2} fw={500} fz="xs">
+        Forgot your password?
+      </Anchor>
+      <Checkbox label="Keep me logged in" mt="md" size="md" />
+
+      <Button fullWidth mt="xl" size="md" onClick={() => (window.location.href = '/todo')}>
+        Login
+      </Button>
+
+      <Text ta="center" mt="md">
+        Don&apos;t have an account?{' '}
+        <Anchor<'a'> href="/register" fw={700}>
+          Register
+        </Anchor>
+      </Text>
+    </>
   );
 }
