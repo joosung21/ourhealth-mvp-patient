@@ -47,7 +47,7 @@ export default function TealHeader() {
       <div className="ml-auto">
         <button className="relative p-1 mt-1">
           <img src={BellIcon} alt="Notification" />
-          <span className="absolute top-1 right-[6px] w-2 h-2 bg-[#FF0000] rounded-full"></span>
+          {/* <span className="absolute top-1 right-[6px] w-2 h-2 bg-[#FF0000] rounded-full"></span> */}
         </button>
       </div>
     </div>

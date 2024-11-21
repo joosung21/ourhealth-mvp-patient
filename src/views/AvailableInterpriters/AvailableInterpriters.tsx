@@ -8,7 +8,7 @@ import { INTERPRETERS } from '@/mocks/interpreters';
 
 export default function AvailableInterpriters() {
   const navigate = useNavigate();
-  const date = dayjs('2024-05-15 11:00').format('YYYY.MM.DD hh:mmA');
+  const date = dayjs().hour(13).minute(0).format('YYYY.MM.DD hh:mmA');
   const [showScrollOverlay, setShowScrollOverlay] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
 

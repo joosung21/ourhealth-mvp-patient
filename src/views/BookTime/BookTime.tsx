@@ -9,8 +9,11 @@ import { Time } from './BookTimeType';
 import TimePicker from './TimePicker';
 
 export default function BookTimePage() {
-  const [date, setDate] = useState<Date | null>(dayjs().add(1, 'day').toDate());
-  const [time, setTime] = useState<Time>({ hour: 11, minute: 0, ampm: 'AM' });
+  const [date, setDate] = useState<Date | null>(dayjs().toDate());
+  const nextHour = dayjs().hour() + 2;
+  const nextHourToDisplay = nextHour > 12 ? nextHour - 12 : nextHour;
+  const nextAmPm = nextHour >= 12 ? 'PM' : 'AM';
+  const [time, setTime] = useState<Time>({ hour: nextHourToDisplay, minute: 0, ampm: nextAmPm });
   const navigate = useNavigate();
 
   return (
@@ -25,6 +28,7 @@ export default function BookTimePage() {
           <DatePicker
             value={date}
             size="md"
+            highlightToday
             minDate={dayjs().toDate()}
             maxDate={dayjs().add(2, 'month').toDate()}
             nextIcon={<img src={ArrowRight} className="scale-103" alt="Next" />}
@@ -39,8 +43,14 @@ export default function BookTimePage() {
 
         <div className="text-center mt-8">
           <span className="text-dimed-more mr-2">Booking for:</span>
-          <span className="font-[500]">{dayjs(date).format('YYYY.MM.DD')}</span>
-          <span className="ml-2 font-[500]">
+          <span className="font-[500]">
+            {dayjs(date).isSame(dayjs(), 'day')
+              ? 'Today'
+              : dayjs(date).isSame(dayjs().add(1, 'day'), 'day')
+                ? 'Tomorrow'
+                : dayjs(date).format('YYYY.MM.DD')}
+          </span>
+          <span className="ml-1 font-[500]">
             {time.hour.toString().padStart(2, '0')}:{time.minute.toString().padStart(2, '0')}
             {time.ampm}
           </span>

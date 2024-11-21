@@ -20,7 +20,7 @@ export default function TimePicker({ time, onChange }: TimePickerProps) {
           >
             <img src={ArrowUp} alt="Up" />
           </Button>
-          <div>{time.hour}</div>
+          <div className="text-lg font-[500]">{time.hour}</div>
           <Button
             variant="transparent"
             onClick={() => onChange({ ...time, hour: time.hour === 1 ? 12 : time.hour - 1 })}
@@ -38,7 +38,7 @@ export default function TimePicker({ time, onChange }: TimePickerProps) {
           >
             <img src={ArrowUp} alt="Up" />
           </Button>
-          <div>{time.minute.toString().padStart(2, '0')}</div>
+          <div className="text-lg font-[500]">{time.minute.toString().padStart(2, '0')}</div>
           <Button
             variant="transparent"
             onClick={() => onChange({ ...time, minute: time.minute === 0 ? 50 : time.minute - 10 })}
