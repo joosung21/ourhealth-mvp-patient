@@ -57,7 +57,6 @@ export default function AvailableInterpriters() {
           <div
             key={index}
             className="rounded-[6px] border px-5 py-4 cursor-pointer hover:bg-gray-100 transition"
-            onClick={() => navigate(`/interpreter/${interpreter.id}`)} // 인터프리터 상세 페이지로 이동
           >
             <Group>
               <img
