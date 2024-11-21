@@ -56,6 +56,10 @@ body {
   }
 }
 
+.button-secondary {
+  @apply bg-[#FFF04E] text-black font-[500] text-[14px] py-3 px-5 rounded-full cursor-pointer hover:bg-[#FFE544] transition;
+}
+
 .page-description {
   margin-bottom: 2rem;
   color: var(--mantine-color-gray-6);
@@ -207,6 +211,7 @@ p {
   border: 1px solid #e3edec;
   font-size: 14px;
   line-height: 1.4rem;
+  cursor: pointer;
   &.primary {
     border: 1px solid #e3edec;
     background-color: #e6eeed;

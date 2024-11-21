@@ -1,4 +1,3 @@
-import { CheckIcon } from '@heroicons/react/24/outline';
 import { useNavigate } from 'react-router-dom';
 import {
   Anchor,
@@ -13,6 +12,7 @@ import {
 } from '@mantine/core';
 import FootNav from '@/app/MobileLayout/FootNav';
 import TealHeader from '@/app/MobileLayout/TealHeader';
+import Clock from '@/assets/clock-black.svg';
 import MoreIcon from '@/assets/more.svg';
 import SearchingImage from '@/assets/searching.svg';
 import { useTranscriptStore, useUpcomingAppointmentStore } from '@/stores/useServiceStore';
@@ -88,14 +88,10 @@ export default function HomeScreen() {
                 alt="No Appointment"
               />
               <div>No upcoming appointment</div>
-              <Button
-                size="lg"
-                color="secondary"
-                radius="xl"
-                onClick={() => navigate('/book-time')}
-              >
+              <div className="button-secondary" onClick={() => navigate('/book-time')}>
+                <img src={Clock} alt="Clock" className="inline-block mr-2" />
                 Book Appointment
-              </Button>
+              </div>
             </Flex>
           </>
         )}
