@@ -15,7 +15,7 @@ export default function AboutInterpriter() {
   }
 
   return (
-    <div className="container has-title">
+    <div className="container has-title has-footer">
       <FeatureTitle title="About" />
       <Stack>
         <div className="rounded-[6px] border px-5 py-4">

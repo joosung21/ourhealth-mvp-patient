@@ -33,6 +33,9 @@ body {
   &.has-title {
     padding-top: 64px;
   }
+  &.has-footer {
+    padding-bottom: 100px;
+  }
   &.scroll-overlay {
     &::after {
       content: '';
