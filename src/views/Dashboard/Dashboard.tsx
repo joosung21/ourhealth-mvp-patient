@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Anchor, Button, Group, Stack } from '@mantine/core';
+import { Anchor, Button, Group, Stack, TextInput } from '@mantine/core';
 import FootNav from '@/app/MobileLayout/FootNav';
 import TealHeader from '@/app/MobileLayout/TealHeader';
 import MoreIcon from '@/assets/more.svg';
@@ -12,10 +12,10 @@ export default function HomeScreen() {
   const navigate = useNavigate();
 
   return (
-    <div className="container">
+    <>
       <TealHeader />
 
-      <div className="has-header has-foot px-4">
+      <div className="container !pt-[200px] !pb-[120px]">
         {upcomingAppointment || transcriptHistory.length > 0 ? (
           <>
             <div className="text-sub-title mb-3">Upcoming Appointment</div>
@@ -79,9 +79,10 @@ export default function HomeScreen() {
             </Stack>
           </>
         )}
-      </div>
 
+        <TextInput placeholder="Search" />
+      </div>
       <FootNav />
-    </div>
+    </>
   );
 }

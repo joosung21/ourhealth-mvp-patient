@@ -14,12 +14,12 @@ export default function RegisterInformation() {
               providers.
             </p>
           </div>
-          <TextInput size="md" label="Health Card Number" />
+          <TextInput size="md" label="Health Card Number" placeholder="10 digits" />
           <TextInput size="md" label="Date of Birth (MM-DD-YYYY)" placeholder="MM-DD-YYYY" />
         </Stack>
 
         <div className="bottom-action">
-          <Button size="lg" onClick={() => navigate('/register-complete')}>
+          <Button size="lg" fullWidth onClick={() => navigate('/register-complete')}>
             Next
           </Button>
         </div>

@@ -17,11 +17,11 @@ export default function RegisterLanguage() {
             <LanguagePicker />
           </div>
         </Stack>
-      </div>
-      <div className="bottom-action">
-        <Button size="lg" onClick={() => navigate('/register-name')}>
-          Next
-        </Button>
+        <div className="bottom-action">
+          <Button size="lg" fullWidth onClick={() => navigate('/register-name')}>
+            Next
+          </Button>
+        </div>
       </div>
     </>
   );

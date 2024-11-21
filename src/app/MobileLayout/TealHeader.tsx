@@ -16,7 +16,7 @@ export default function TealHeader() {
   }, []);
 
   return (
-    <div className={`tealHeader ${scrolled ? 'h-24' : 'h-[193px]'}`}>
+    <div className={`tealHeader ${scrolled ? 'h-24' : 'h-[160px]'}`}>
       <div className="flex-1">
         <p className="text-white text-[14.56px]">Good Morning,</p>
         <p className="text-white font-semibold text-[21px]">Savannah Nguyen</p>

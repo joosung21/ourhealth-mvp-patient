@@ -24,7 +24,7 @@ import Todo from '../samples/Todo';
 import Typography from '../samples/Typography';
 import ForgotPassword from './Auth/ForgotPassword';
 import Login from './Auth/Login';
-import Register from './Auth/Register';
+// import Register from './Auth/Register';
 import RegisterComplete from './Auth/Register/RegisterComplete';
 import RegisterEntry from './Auth/Register/RegisterEntry';
 import RegisterInformation from './Auth/Register/RegisterInformation';
@@ -40,14 +40,14 @@ export default function AppRoutes() {
     <Routes>
       {/* Not Found Route */}
       <Route path="*" element={<NotFound />} />
-      <Route path="/" element={<Navigate to="/splash" replace />} />
+      <Route path="/" element={<Navigate to="/register-entry" />} />
 
       {/* <Route path="/login" element={<Login />} /> */}
       {/* <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} /> */}
 
       {/* Mobile Pages */}
-      <Route path="/register" element={<Register />} />
+      {/* <Route path="/register" element={<Register />} /> */}
       <Route path="/splash" element={<Splash />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register-entry" element={<RegisterEntry />} />

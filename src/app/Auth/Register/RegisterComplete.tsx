@@ -16,7 +16,7 @@ export default function RegisterInformation() {
         </div>
 
         <div className="bottom-action">
-          <Button size="lg" onClick={() => navigate('/dashboard')}>
+          <Button size="lg" fullWidth onClick={() => navigate('/dashboard')}>
             Start
           </Button>
         </div>
