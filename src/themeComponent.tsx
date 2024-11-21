@@ -1,8 +1,6 @@
-import SelectArrowIcon from '/icons/select-arrow.svg';
-
 export const selectConfig = {
   defaultProps: {
-    rightSection: <img src={SelectArrowIcon} className="h-[20%]" />,
+    rightSection: <img src="/icons/select-arrow.svg" className="h-[20%]" />,
     radius: 6,
   },
   styles: (theme: any, params: { size: string }) => ({
