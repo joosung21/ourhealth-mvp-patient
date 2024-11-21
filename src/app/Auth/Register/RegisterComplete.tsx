@@ -6,8 +6,8 @@ export default function RegisterInformation() {
   const navigate = useNavigate();
   return (
     <>
-      <div className="container flex">
-        <div className="flex flex-col items-center justify-center pb-[200px]">
+      <div className="container">
+        <div className="flex flex-col items-center justify-center mt-auto mb-10">
           <img src={OnboardImage} alt="Onboarding Complete" className="w-[80%] max-h-[260px]" />
           <div className="mt-1 text-center">
             <div className="text-h1">Welcome Onboard!</div>
