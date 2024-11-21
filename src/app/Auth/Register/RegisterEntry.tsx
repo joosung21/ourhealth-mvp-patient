@@ -73,7 +73,7 @@ export default function RegisterEntry() {
             <Button
               variant="default"
               size="lg"
-              leftSection={<img src="./src/assets/icon-apple.svg" />}
+              leftSection={<img src="/icons/icon-apple.svg" />}
               onClick={() => navigate('/register-language')}
             >
               Continue with Apple
@@ -81,7 +81,7 @@ export default function RegisterEntry() {
             <Button
               variant="default"
               size="lg"
-              leftSection={<img src="./src/assets/icon-google.svg" />}
+              leftSection={<img src="/icons/icon-google.svg" />}
               onClick={() => navigate('/register-language')}
             >
               Continue with Google
@@ -89,7 +89,7 @@ export default function RegisterEntry() {
             <Button
               variant="default"
               size="lg"
-              leftSection={<img src="./src/assets/icon-email.svg" />}
+              leftSection={<img src="/icons/icon-email.svg" />}
               onClick={() => navigate('/register-language')}
             >
               Continue with Email
