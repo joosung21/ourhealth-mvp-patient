@@ -57,7 +57,7 @@ body {
 }
 
 .button-secondary {
-  @apply bg-[#FFF04E] text-black font-[500] text-[14px] py-3 px-5 rounded-full cursor-pointer hover:bg-[#FFE544] transition;
+  @apply bg-[#FFF04E] text-black font-[500] text-[14px] py-3 px-5 rounded-full cursor-pointer hover:bg-[#FFE544] transition whitespace-nowrap;
 }
 
 .page-description {

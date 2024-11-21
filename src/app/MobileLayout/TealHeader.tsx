@@ -57,7 +57,7 @@ export default function TealHeader() {
         </div>
         {(transcriptHistory.length > 0 || upcomingAppointment) && (
           <div
-            className="button-secondary absolute bottom-[-20px] left-1/2 transform -translate-x-1/2"
+            className="button-secondary absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 min-w-[200px]"
             onClick={() => navigate('/book-time')}
           >
             <img src={Clock} alt="Clock" className="inline-block mr-2" />
