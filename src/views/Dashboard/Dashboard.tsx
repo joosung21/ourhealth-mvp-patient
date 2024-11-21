@@ -50,7 +50,7 @@ export default function HomeScreen() {
               <div className="text-sub-title mb-3">
                 <Group justify="space-between">
                   Transcript History
-                  <Anchor href="#" underline="always" size="sm">
+                  <Anchor underline="always" size="sm">
                     Show All
                   </Anchor>
                 </Group>
