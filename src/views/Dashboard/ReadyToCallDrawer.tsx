@@ -18,6 +18,45 @@ export default function ReadyToCallDrawer({ callStep, onChangeCallStep }: ReadyT
     }
   }, [callStep]);
 
+  useEffect(() => {
+    const swipeHandle = document.getElementById('swape-handle');
+    if (!swipeHandle) return;
+
+    let startY = 0;
+    let endY = 0;
+
+    const handleTouchStart = (event: TouchEvent) => {
+      startY = event.touches[0].clientY;
+    };
+
+    const handleTouchMove = (event: TouchEvent) => {
+      endY = event.touches[0].clientY;
+    };
+
+    const handleTouchEnd = () => {
+      const swipeDistance = endY - startY;
+
+      if (swipeDistance > 50) {
+        onChangeCallStep(0);
+        close();
+      }
+
+      // 초기화
+      startY = 0;
+      endY = 0;
+    };
+
+    swipeHandle.addEventListener('touchstart', handleTouchStart);
+    swipeHandle.addEventListener('touchmove', handleTouchMove);
+    swipeHandle.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      swipeHandle.removeEventListener('touchstart', handleTouchStart);
+      swipeHandle.removeEventListener('touchmove', handleTouchMove);
+      swipeHandle.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [onChangeCallStep, close]);
+
   return (
     <>
       <Drawer
@@ -32,7 +71,10 @@ export default function ReadyToCallDrawer({ callStep, onChangeCallStep }: ReadyT
         size={callStep === 1 ? 460 : 300}
         withCloseButton={false}
       >
-        <div className="bg-[#E5E5E5] w-[140px] h-[5.2px] rounded-full mx-auto mt-1 mb-4" />
+        <div
+          id="swape-handle"
+          className="bg-[#E5E5E5] w-[140px] h-[5.2px] rounded-full mx-auto mt-1 mb-4"
+        />
         <div className="flex flex-col items-center">
           {callStep === 1 && (
             <>
