@@ -29,7 +29,7 @@ export default function HomeScreen() {
       <div className="container !pt-[200px] !pb-[120px]">
         {upcomingAppointment || transcriptHistory.length > 0 ? (
           <>
-            <div className="text-sub-title mb-3">Upcoming Appointment</div>
+            <div className="text-sub-title mb-3 mt-6">Upcoming Appointment</div>
             <Stack gap="md">
               {upcomingAppointment && (
                 <div className="card primary">
