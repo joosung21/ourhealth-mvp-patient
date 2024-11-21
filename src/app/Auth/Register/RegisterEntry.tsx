@@ -2,6 +2,7 @@ import { CheckIcon } from '@heroicons/react/24/outline';
 import { useNavigate } from 'react-router-dom';
 import { Button, Divider, Group, Select, SelectProps, Stack, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import GoogleIcon from '@/assets/icon-google.svg';
 import COUNTRY_CODES from '@/constants/countrycode.json';
 
 type CountryCode = {
@@ -73,7 +74,7 @@ export default function RegisterEntry() {
             <Button
               variant="default"
               size="lg"
-              leftSection={<img src="/icons/icon-apple.svg" />}
+              leftSection={<img src={GoogleIcon} />}
               onClick={() => navigate('/register-language')}
             >
               Continue with Apple
