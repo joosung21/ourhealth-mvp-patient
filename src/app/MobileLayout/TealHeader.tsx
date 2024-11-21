@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import BellIcon from '@/assets/notification.svg';
 
 export default function TealHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,7 +23,7 @@ export default function TealHeader() {
       </div>
       <div className="ml-auto">
         <button className="relative p-1 mt-1">
-          <img src="./src/assets/notification.svg" alt="Notification" />
+          <img src={BellIcon} alt="Notification" />
           <span className="absolute top-1 right-[6px] w-2 h-2 bg-[#FF0000] rounded-full"></span>
         </button>
       </div>

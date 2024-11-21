@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import { useNavigate } from 'react-router-dom';
 import { Button, Center, Group, Stack, Text } from '@mantine/core';
+import ClockIcon from '@/assets/clock.svg';
 import FeatureTitle from '@/components/FeatureTitle/FeatureTile';
 import { INTERPRETERS } from '@/mocks/interpreters';
 
@@ -16,7 +17,7 @@ export default function AvailableInterpriters() {
           <Center className="mt-4">
             <div className="bg-primary rounded-full py-[6px] px-3 font-[500]">
               <Group gap="sm">
-                <img src="/src/assets/clock.svg" className="-ml-[2px]" />
+                <img src={ClockIcon} className="-ml-[2px]" />
                 {date}
               </Group>
             </div>
