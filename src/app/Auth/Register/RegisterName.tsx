@@ -82,13 +82,12 @@ export default function RegisterName() {
             )}
           />
         </Stack>
-
-        <div className="bottom-action" style={{ marginTop: '1rem' }}>
-          <Button size="lg" type="submit" fullWidth>
-            Next
-          </Button>
-        </div>
       </form>
+      <div className="bottom-action mt-auto">
+        <Button size="lg" onClick={handleSubmit(onSubmit)}>
+          Next
+        </Button>
+      </div>
     </div>
   );
 }

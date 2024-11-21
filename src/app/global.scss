@@ -63,6 +63,17 @@ body {
   & > button {
     width: 100%;
   }
+  &.bottom-action-fixed {
+    @apply md:max-w-[400px] px-6 pt-0 pb-4;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 10;
+    background: white;
+    box-shadow: 0px -4px 12px 0px rgba(173, 173, 173, 0.12);
+  }
 }
 
 .label {
@@ -70,6 +81,12 @@ body {
   font-weight: 500;
   margin-bottom: 4px;
   color: #555;
+}
+
+.section-title {
+  @apply text-lg font-[700];
+  color: $primary-color;
+  margin-bottom: 4px;
 }
 
 .text-h1 {
@@ -87,8 +104,7 @@ body {
 
 p {
   color: #828282;
-  line-height: 20px;
-  margin-top: 4px;
+  line-height: 1.4em;
 }
 
 .text-sub-title {
@@ -140,6 +156,14 @@ p {
 
 .has-foot {
   padding-bottom: 80px;
+}
+
+.chip-primary {
+  background-color: #d8f0eb;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 9999px;
+  display: inline-block;
 }
 
 .foot-nav {

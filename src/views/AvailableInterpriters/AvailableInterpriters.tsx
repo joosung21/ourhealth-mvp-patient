@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Center, Flex, Group, Stack, Text } from '@mantine/core';
+import { Center, Group, Stack } from '@mantine/core';
 import ClockIcon from '@/assets/clock.svg';
 import FeatureTitle from '@/components/FeatureTitle/FeatureTile';
 import { INTERPRETERS } from '@/mocks/interpreters';
@@ -19,7 +19,6 @@ export default function AvailableInterpriters() {
 
     const handleScroll = () => {
       const { scrollTop, scrollHeight, clientHeight } = container;
-      // 스크롤이 거의 하단에 도달했는지 확인 (약간의 여유를 둡니다)
       if (scrollTop + clientHeight >= scrollHeight - 5) {
         setShowScrollOverlay(false);
       } else {
@@ -38,7 +37,6 @@ export default function AvailableInterpriters() {
     <div
       className={`container has-title ${showScrollOverlay ? 'scroll-overlay' : ''}`}
       ref={containerRef}
-      style={{ position: 'relative', overflowY: 'auto', maxHeight: '100vh' }}
     >
       <FeatureTitle title="Available Interpreters" />
       <Center className="mb-5">
@@ -57,6 +55,7 @@ export default function AvailableInterpriters() {
           <div
             key={index}
             className="rounded-[6px] border px-5 py-4 cursor-pointer hover:bg-gray-100 transition"
+            onClick={() => navigate(`/available-interpriters/${interpreter.id}`)}
           >
             <Group>
               <img
@@ -66,7 +65,7 @@ export default function AvailableInterpriters() {
               />
               <div>
                 <div className="font-[700]">{interpreter.name}</div>
-                <div className="text-dimed-more">Available until 11:35AM</div>
+                <div className="text-dimed-more font-[500]">Available until 11:35AM</div>
               </div>
             </Group>
           </div>

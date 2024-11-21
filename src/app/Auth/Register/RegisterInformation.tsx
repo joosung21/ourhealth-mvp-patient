@@ -115,13 +115,12 @@ export default function RegisterInformation() {
               )}
             />
           </Stack>
-
-          <div className="bottom-action">
-            <Button size="lg" type="submit" fullWidth>
-              Next
-            </Button>
-          </div>
         </form>
+        <div className="bottom-action">
+          <Button size="lg" onClick={handleSubmit(onSubmit)}>
+            Next
+          </Button>
+        </div>
       </div>
     </>
   );

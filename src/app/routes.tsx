@@ -10,7 +10,9 @@ import List from '@/samples/List';
 import MultiLanguage from '@/samples/MultiLanguage';
 import StateControl from '@/samples/StateControl';
 import Tooltip from '@/samples/Tooltip';
+import AboutInterpriter from '@/views/AvailableInterpriters/AboutInterpriter';
 import AvailableInterpriters from '@/views/AvailableInterpriters/AvailableInterpriters';
+import BookingConfirmed from '@/views/AvailableInterpriters/BookingConfirmed';
 import BookTime from '@/views/BookTime/BookTime';
 import Dashboard from '@/views/Dashboard/Dashboard';
 import AppSpec from '../samples/AppSpec';
@@ -31,7 +33,6 @@ import RegisterInformation from './Auth/Register/RegisterInformation';
 import RegisterLanguage from './Auth/Register/RegisterLanguage';
 import RegisterName from './Auth/Register/RegisterName';
 import Layout from './Layouts/Layout';
-import MobileWrapper from './MobileLayout/MobileWrapper';
 import NotFound from './NotFound';
 import Splash from './Splash';
 
@@ -58,6 +59,8 @@ export default function AppRoutes() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/book-time" element={<BookTime />} />
       <Route path="/available-interpriters" element={<AvailableInterpriters />} />
+      <Route path="/available-interpriters/:id" element={<AboutInterpriter />} />
+      <Route path="/booking-confirmed" element={<BookingConfirmed />} />
 
       {/* Layout Wrapper */}
       <Route element={<Layout />}>
