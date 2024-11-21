@@ -1,13 +1,15 @@
 $min-width: 320px;
-$max-width: 430px;
+// $max-width: 400px;
+$text-black: #302f2f;
+$primary-color: #266770;
 
 * {
   font-family: 'Inter', sans-serif;
 }
 
 .bg-primary {
-  color: var(--mantine-color-primary);
-  background-color: var(--mantine-color-primary);
+  color: white;
+  background-color: var(--mantine-color-darkTeal-filled);
 }
 
 .bg-secondary {
@@ -21,11 +23,12 @@ body {
 }
 
 .container {
+  @apply md:max-w-[400px];
   min-width: $min-width;
-  max-width: $max-width;
   margin: 0 auto;
   padding: 46px 24px;
   min-height: 100dvh;
+  height: 100%;
   position: relative;
   background: white;
 }
@@ -45,7 +48,7 @@ body {
   background: white;
   width: 100%;
   min-width: $min-width;
-  max-width: $max-width;
+  @apply md:max-w-[400px];
   & > * {
     flex: 1;
   }
@@ -67,6 +70,10 @@ body {
   color: #676767;
 }
 
+.text-dimed-more {
+  color: #858585;
+}
+
 p {
   color: #828282;
   line-height: 20px;
@@ -82,6 +89,10 @@ p {
   color: #302f2f;
 }
 
+.text-all-black {
+  color: #000;
+}
+
 .tealHeader {
   @apply transition-all duration-300;
   background: url('src/assets/texture.png'), #266770;
@@ -94,7 +105,7 @@ p {
   left: 50%;
   width: 100%;
   min-width: $min-width;
-  max-width: $max-width;
+  @apply md:max-w-[400px];
   transform: translate(-50%, 0);
   z-index: 10;
 }
@@ -110,7 +121,7 @@ p {
 .foot-nav {
   position: fixed;
   width: 100%;
-  max-width: $max-width;
+  @apply md:max-w-[400px];
   min-width: $min-width;
   bottom: 0;
   left: 50%;
@@ -147,8 +158,70 @@ p {
   border: 1px solid #e3edec;
   font-size: 14px;
   line-height: 1.4rem;
-  &.active {
+  &.primary {
     border: 1px solid #e3edec;
     background-color: #e6eeed;
+  }
+}
+
+.v-split {
+  @apply flex flex-col h-full max-h-[calc(100vh-50px)] -mb-[100px];
+  position: relative;
+  .v-split-top {
+    @apply pb-5 grow-0 shrink-0;
+  }
+  .v-split-main {
+    @apply overflow-y-auto -mx-6 px-6 pb-5;
+  }
+
+  &.scroll-overlay {
+    &::after {
+      content: '';
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      height: 200px;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.8) 50%,
+        rgba(255, 255, 255, 1) 100%
+      );
+      z-index: 10;
+      opacity: 0.8;
+    }
+  }
+}
+
+.has-foot .v-split {
+  @apply max-h-[calc(100vh-150px)];
+}
+
+.teal-calendar {
+  .mantine-DatePicker-calendarHeaderLevel {
+    color: $text-black;
+    font-weight: 700;
+    &:hover {
+      background-color: rgba(0, 80, 80, 0.05);
+    }
+  }
+  .mantine-DatePicker-calendarHeaderControl {
+    &:hover {
+      background-color: rgba(0, 80, 80, 0.05);
+    }
+  }
+  .mantine-DatePicker-day {
+    &:not([data-selected='true']) {
+      color: #302f2f;
+      &:hover {
+        background-color: rgba(0, 80, 80, 0.05);
+      }
+    }
+  }
+  .calendarHeaderControl {
+    &:hover {
+      background-color: rgba(0, 80, 80, 0.05);
+    }
   }
 }

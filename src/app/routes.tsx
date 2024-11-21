@@ -1,9 +1,8 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Dashboard from '@/pages/Dashboard/Dashboard.page';
 import Accordion from '@/samples/Accordion';
 import Alert from '@/samples/Alert';
 import Card from '@/samples/Card';
-import Chatting from '@/samples/Chatting/Chatting.page';
+import Chatting from '@/samples/Chatting/Chatting';
 import DrageAndDrop from '@/samples/DrageAndDrop';
 import Drawers from '@/samples/Drawer';
 import FetchData from '@/samples/FetchData';
@@ -11,6 +10,9 @@ import List from '@/samples/List';
 import MultiLanguage from '@/samples/MultiLanguage';
 import StateControl from '@/samples/StateControl';
 import Tooltip from '@/samples/Tooltip';
+import AvailableInterpriters from '@/views/AvailableInterpriters/AvailableInterpriters';
+import BookTime from '@/views/BookTime/BookTime';
+import Dashboard from '@/views/Dashboard/Dashboard.page';
 import AppSpec from '../samples/AppSpec';
 import Color from '../samples/Color';
 import DatePicker from '../samples/DatePicker';
@@ -44,8 +46,7 @@ export default function AppRoutes() {
       {/* <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} /> */}
 
-      {/* Mobile Wrapper */}
-      <Route element={<MobileWrapper />}></Route>
+      {/* Mobile Pages */}
       <Route path="/register" element={<Register />} />
       <Route path="/splash" element={<Splash />} />
       <Route path="/login" element={<Login />} />
@@ -55,6 +56,8 @@ export default function AppRoutes() {
       <Route path="/register-information" element={<RegisterInformation />} />
       <Route path="/register-complete" element={<RegisterComplete />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/book-time" element={<BookTime />} />
+      <Route path="/available-interpriters" element={<AvailableInterpriters />} />
 
       {/* Layout Wrapper */}
       <Route element={<Layout />}>
