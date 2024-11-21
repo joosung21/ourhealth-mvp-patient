@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mantine/core';
-import OnboardImage from '@/assets/illustrations/globe.svg';
+import OnboardImage from '@/assets/globe.svg';
 
 export default function RegisterInformation() {
   const navigate = useNavigate();

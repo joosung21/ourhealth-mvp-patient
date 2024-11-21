@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { Anchor, Button, Group, Stack } from '@mantine/core';
 import FootNav from '@/app/MobileLayout/FootNav';
 import TealHeader from '@/app/MobileLayout/TealHeader';
-import SearchingImage from '@/assets/illustrations/searching.svg';
 import MoreIcon from '@/assets/more.svg';
+import SearchingImage from '@/assets/searching.svg';
 import { useTranscriptStore, useUpcomingAppointmentStore } from '@/stores/useServiceStore';
 
 export default function HomeScreen() {
