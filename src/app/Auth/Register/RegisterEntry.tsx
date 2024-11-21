@@ -2,6 +2,8 @@ import { CheckIcon } from '@heroicons/react/24/outline';
 import { useNavigate } from 'react-router-dom';
 import { Button, Divider, Group, Select, SelectProps, Stack, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import AppleIcon from '@/assets/icon-apple.svg';
+import EmailIcon from '@/assets/icon-email.svg';
 import GoogleIcon from '@/assets/icon-google.svg';
 import COUNTRY_CODES from '@/constants/countrycode.json';
 
@@ -74,7 +76,7 @@ export default function RegisterEntry() {
             <Button
               variant="default"
               size="lg"
-              leftSection={<img src={GoogleIcon} />}
+              leftSection={<img src={AppleIcon} />}
               onClick={() => navigate('/register-language')}
             >
               Continue with Apple
@@ -82,7 +84,7 @@ export default function RegisterEntry() {
             <Button
               variant="default"
               size="lg"
-              leftSection={<img src="/icons/icon-google.svg" />}
+              leftSection={<img src={GoogleIcon} />}
               onClick={() => navigate('/register-language')}
             >
               Continue with Google
@@ -90,7 +92,7 @@ export default function RegisterEntry() {
             <Button
               variant="default"
               size="lg"
-              leftSection={<img src="/icons/icon-email.svg" />}
+              leftSection={<img src={EmailIcon} />}
               onClick={() => navigate('/register-language')}
             >
               Continue with Email

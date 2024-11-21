@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Text } from '@mantine/core';
 import { DatePicker } from '@mantine/dates';
+import ArrowRight from '@/assets/arrow-right-teal.svg';
 import FeatureTitle from '@/components/FeatureTitle/FeatureTile';
 import { Time } from './BookTimeType';
 import TimePicker from './TimePicker';
@@ -28,15 +29,9 @@ export default function BookTimePage() {
               size="md"
               minDate={dayjs().toDate()}
               maxDate={dayjs().add(2, 'month').toDate()}
-              nextIcon={
-                <img src="/src/assets/arrow-right-teal.svg" className="scale-103" alt="Next" />
-              }
+              nextIcon={<img src={ArrowRight} className="scale-103" alt="Next" />}
               previousIcon={
-                <img
-                  src="/src/assets/arrow-right-teal.svg"
-                  className="scale-103 rotate-180"
-                  alt="Previous"
-                />
+                <img src={ArrowRight} className="scale-103 rotate-180" alt="Previous" />
               }
               onChange={setDate}
               className="teal-calendar mb-1"

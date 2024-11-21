@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Center, Image } from '@mantine/core';
+import Logo from '@/assets/logo-white.svg';
 
 export default function SplashScreen() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function SplashScreen() {
         }}
       />
       <Center className="absolute w-full h-full">
-        <Image src="/src/assets/logo-white.svg" alt="Our Health Logo" className="mb-[100px]" />
+        <Image src={Logo} alt="Our Health Logo" className="mb-[100px]" />
       </Center>
     </div>
   );

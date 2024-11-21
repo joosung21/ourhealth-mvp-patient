@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { Anchor, Button, Group, Stack } from '@mantine/core';
 import FootNav from '@/app/MobileLayout/FootNav';
 import TealHeader from '@/app/MobileLayout/TealHeader';
+import SearchingImage from '@/assets/illustration/Searching.svg';
+import MoreIcon from '@/assets/more.svg';
 import { useTranscriptStore, useUpcomingAppointmentStore } from '@/stores/useServiceStore';
 
 export default function HomeScreen() {
@@ -25,7 +27,7 @@ export default function HomeScreen() {
                       2024.05.15
                       <span className="ml-2">11:00AM</span>
                     </div>
-                    <img src="/src/assets/more.svg" alt="Arrow Right" />
+                    <img src={MoreIcon} alt="Arrow Right" />
                   </Group>
                   <div>Interpreter: Floyd Miles</div>
                   <div className="text-dimed">Reference: #NYH2024030402CA</div>
@@ -51,7 +53,7 @@ export default function HomeScreen() {
                       {item.date}
                       <span className="ml-2">{item.time}</span>
                     </div>
-                    <img src="/src/assets/more.svg" alt="Arrow Right" />
+                    <img src={MoreIcon} alt="Arrow Right" />
                   </Group>
                   <div>Interpreter: {item.interpreter}</div>
                   <div className="text-dimed">Reference: {item.reference}</div>
@@ -62,7 +64,7 @@ export default function HomeScreen() {
         ) : (
           <>
             <Stack align="center" justify="center" className="h-[calc(100vh-400px)]">
-              <img src="/src/assets/illustration/Searching.svg" width="70%" alt="No Appointment" />
+              <img src={SearchingImage} width="70%" alt="No Appointment" />
               <div>No upcoming appointment</div>
               <Button
                 size="lg"

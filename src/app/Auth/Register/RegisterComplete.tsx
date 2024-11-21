@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { Button, Image, Stack, TextInput } from '@mantine/core';
+import { Button } from '@mantine/core';
+import OnboardImage from '@/assets/illustration/Globe.svg';
 
 export default function RegisterInformation() {
   const navigate = useNavigate();
@@ -7,11 +8,7 @@ export default function RegisterInformation() {
     <>
       <div className="container flex">
         <div className="flex flex-col items-center justify-center pb-[200px]">
-          <img
-            src="/src/assets/illustration/Globe.svg"
-            alt="Onboarding Complete"
-            className="w-[80%] max-h-[260px]"
-          />
+          <img src={OnboardImage} alt="Onboarding Complete" className="w-[80%] max-h-[260px]" />
           <div className="mt-1 text-center">
             <div className="text-h1">Welcome Onboard!</div>
             <p>We’re here to provide you with the best care and support.</p>

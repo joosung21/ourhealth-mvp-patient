@@ -12,7 +12,7 @@ import StateControl from '@/samples/StateControl';
 import Tooltip from '@/samples/Tooltip';
 import AvailableInterpriters from '@/views/AvailableInterpriters/AvailableInterpriters';
 import BookTime from '@/views/BookTime/BookTime';
-import Dashboard from '@/views/Dashboard/Dashboard.page';
+import Dashboard from '@/views/Dashboard/Dashboard';
 import AppSpec from '../samples/AppSpec';
 import Color from '../samples/Color';
 import DatePicker from '../samples/DatePicker';
