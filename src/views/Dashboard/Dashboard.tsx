@@ -1,26 +1,23 @@
-import { useNavigate } from 'react-router-dom';
-import {
-  Anchor,
-  Button,
-  Divider,
-  Flex,
-  Group,
-  Select,
-  SelectProps,
-  Stack,
-  TextInput,
-} from '@mantine/core';
+import { useState } from 'react';
+import { Anchor, Group, Stack } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 import FootNav from '@/app/MobileLayout/FootNav';
 import TealHeader from '@/app/MobileLayout/TealHeader';
-import Clock from '@/assets/clock-black.svg';
 import MoreIcon from '@/assets/more.svg';
-import SearchingImage from '@/assets/searching.svg';
 import { useTranscriptStore, useUpcomingAppointmentStore } from '@/stores/useServiceStore';
+import NoAppinment from './NoAppoinment';
+import ReadyToCallDrawer from './ReadyToCallDrawer';
 
 export default function HomeScreen() {
   const transcriptHistory = useTranscriptStore((state) => state.transcriptHistory);
   const upcomingAppointment = useUpcomingAppointmentStore((state) => state.upcomingAppointment);
-  const navigate = useNavigate();
+  const [opened, { open, close }] = useDisclosure(false);
+  const [callStep, setCallStep] = useState(0);
+
+  const OpenDrawer = () => {
+    setCallStep(1);
+    setTimeout(() => setCallStep(2), 1000);
+  };
 
   return (
     <>
@@ -32,7 +29,7 @@ export default function HomeScreen() {
             <div className="text-sub-title mb-3 mt-6">Upcoming Appointment</div>
             <Stack gap="md">
               {upcomingAppointment && (
-                <div className="card primary">
+                <div className="card primary" onClick={OpenDrawer}>
                   <Group justify="space-between" className="mb-1">
                     <div className="font-[600]">
                       2024.05.15
@@ -73,30 +70,11 @@ export default function HomeScreen() {
             </Stack>
           </>
         ) : (
-          <>
-            <Flex
-              direction="column"
-              align="center"
-              justify="center"
-              style={{ minHeight: '60vh' }}
-              gap="md"
-              wrap="nowrap"
-            >
-              <img
-                src={SearchingImage}
-                style={{ width: '65%', maxWidth: '300px', height: 'auto' }}
-                alt="No Appointment"
-              />
-              <div>No upcoming appointment</div>
-              <div className="button-secondary" onClick={() => navigate('/book-time')}>
-                <img src={Clock} alt="Clock" className="inline-block mr-2" />
-                Book Appointment
-              </div>
-            </Flex>
-          </>
+          <NoAppinment />
         )}
       </div>
       <FootNav />
+      <ReadyToCallDrawer callStep={callStep} onChangeCallStep={(step) => setCallStep(step)} />
     </>
   );
 }
