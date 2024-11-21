@@ -60,6 +60,9 @@ body {
 
 .bottom-action {
   @apply mt-auto pt-6;
+  & > button {
+    width: 100%;
+  }
 }
 
 .label {

@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Center, Group, Stack, Text } from '@mantine/core';
+import { Button, Center, Flex, Group, Stack, Text } from '@mantine/core';
 import ClockIcon from '@/assets/clock.svg';
 import FeatureTitle from '@/components/FeatureTitle/FeatureTile';
 import { INTERPRETERS } from '@/mocks/interpreters';
@@ -8,21 +9,56 @@ import { INTERPRETERS } from '@/mocks/interpreters';
 export default function AvailableInterpriters() {
   const navigate = useNavigate();
   const date = dayjs('2024-05-15 11:00').format('YYYY.MM.DD hh:mmA');
+  const [showScrollOverlay, setShowScrollOverlay] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+
+    if (!container) return;
+
+    const handleScroll = () => {
+      const { scrollTop, scrollHeight, clientHeight } = container;
+      // 스크롤이 거의 하단에 도달했는지 확인 (약간의 여유를 둡니다)
+      if (scrollTop + clientHeight >= scrollHeight - 5) {
+        setShowScrollOverlay(false);
+      } else {
+        setShowScrollOverlay(true);
+      }
+    };
+
+    container.addEventListener('scroll', handleScroll);
+
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <div className="container has-title scroll-overlay">
+    <div
+      className={`container has-title ${showScrollOverlay ? 'scroll-overlay' : ''}`}
+      ref={containerRef}
+      style={{ position: 'relative', overflowY: 'auto', maxHeight: '100vh' }}
+    >
       <FeatureTitle title="Available Interpreters" />
       <Center className="mb-5">
-        <div className="bg-primary rounded-full py-[6px] px-3 font-[500]">
-          <Group gap="sm">
-            <img src={ClockIcon} className="-ml-[2px]" />
+        <div
+          className="bg-primary rounded-full py-[6px] px-3 font-[500]"
+          style={{ display: 'flex', alignItems: 'center' }}
+        >
+          <Group gap="xs">
+            <img src={ClockIcon} className="-ml-[2px]" alt="Clock Icon" />
             {date}
           </Group>
         </div>
       </Center>
       <Stack>
         {INTERPRETERS.map((interpreter, index) => (
-          <div key={index} className="rounded-[6px] border px-5 py-4 cursor-pointer">
+          <div
+            key={index}
+            className="rounded-[6px] border px-5 py-4 cursor-pointer hover:bg-gray-100 transition"
+            onClick={() => navigate(`/interpreter/${interpreter.id}`)} // 인터프리터 상세 페이지로 이동
+          >
             <Group>
               <img
                 src={interpreter.img}
