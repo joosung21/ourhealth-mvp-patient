@@ -73,7 +73,7 @@ export default function HomeScreen() {
         )}
       </div>
       <FootNav />
-      <ReadyToCallDrawer callStep={callStep} onChangeCallStep={(step) => setCallStep(step)} />
+      <ReadyToCallDrawer />
     </>
   );
 }
