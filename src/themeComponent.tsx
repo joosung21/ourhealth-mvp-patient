@@ -1,4 +1,4 @@
-import SelectArrowIcon from '@/assets/select-arrow.svg';
+import SelectArrowIcon from '/src/assets/select-arrow.svg';
 
 export const selectConfig = {
   defaultProps: {
