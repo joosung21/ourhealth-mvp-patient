@@ -30,10 +30,10 @@ export default function HomeScreen() {
         {upcomingAppointment || transcriptHistory.length > 0 ? (
           <>
             <div className="text-sub-title mb-3">Upcoming Appointment</div>
-            <Stack spacing="md">
+            <Stack gap="md">
               {upcomingAppointment && (
                 <div className="card primary">
-                  <Group position="apart" className="mb-1">
+                  <Group justify="space-between" className="mb-1">
                     <div className="font-[600]">
                       2024.05.15
                       <span className="ml-2">11:00AM</span>
@@ -48,7 +48,7 @@ export default function HomeScreen() {
 
             <div className="mt-8">
               <div className="text-sub-title mb-3">
-                <Group position="apart">
+                <Group justify="space-between">
                   Transcript History
                   <Anchor href="#" underline="always" size="sm">
                     Show All
@@ -56,10 +56,10 @@ export default function HomeScreen() {
                 </Group>
               </div>
             </div>
-            <Stack spacing="md">
+            <Stack gap="md">
               {transcriptHistory.map((item, index) => (
                 <div className="card" key={index}>
-                  <Group position="apart" className="mb-1">
+                  <Group justify="space-between" className="mb-1">
                     <div className="font-[600]">
                       {item.date}
                       <span className="ml-2">{item.time}</span>
