@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { Anchor, Button, Group, Stack } from '@mantine/core';
 import FootNav from '@/app/MobileLayout/FootNav';
 import TealHeader from '@/app/MobileLayout/TealHeader';
-import SearchingImage from '@/assets/illustration/Searching.svg';
+import SearchingImage from '@/assets/illustration/searching.svg';
 import MoreIcon from '@/assets/more.svg';
 import { useTranscriptStore, useUpcomingAppointmentStore } from '@/stores/useServiceStore';
 
