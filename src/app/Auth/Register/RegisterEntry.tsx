@@ -62,6 +62,7 @@ export default function RegisterEntry() {
                 size="md"
                 className="grow"
                 placeholder="Mobile number"
+                type="tel"
                 leftSection={`${COUNTRY_CODES.find((item) => item.code === form.values.dialCode)?.dial_code}`}
                 {...form.getInputProps('mobileNumber')}
               />

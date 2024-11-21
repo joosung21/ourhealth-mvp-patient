@@ -64,7 +64,7 @@ export default function HomeScreen() {
         ) : (
           <>
             <Stack align="center" justify="center" className="h-[calc(100vh-400px)]">
-              <img src={SearchingImage} width="70%" alt="No Appointment" />
+              <img src={SearchingImage} width="65%" alt="No Appointment" />
               <div>No upcoming appointment</div>
               <Button
                 size="lg"
@@ -79,8 +79,6 @@ export default function HomeScreen() {
             </Stack>
           </>
         )}
-
-        <TextInput placeholder="Search" />
       </div>
       <FootNav />
     </>
