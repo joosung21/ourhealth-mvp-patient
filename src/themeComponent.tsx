@@ -1,8 +1,8 @@
-import Color from './samples/Color';
+import SelectArrowIcon from '@/assets/select-arrow.svg';
 
 export const selectConfig = {
   defaultProps: {
-    rightSection: <img src="./src/assets/select-arrow.svg" className="h-[20%]" />,
+    rightSection: <img src={SelectArrowIcon} className="h-[20%]" />,
     radius: 6,
   },
   styles: (theme: any, params: { size: string }) => ({
