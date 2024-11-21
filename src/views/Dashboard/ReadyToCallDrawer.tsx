@@ -1,61 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button, Drawer, Group, Stack } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import CallIcon from '@/assets/call.svg';
 import MockQR from '@/assets/mock-qr.png';
+import { useCallStore } from '@/stores/useCallStore';
 
-interface ReadyToCallDrawerProps {
-  callStep: number;
-  onChangeCallStep: (step: number) => void;
-}
-
-export default function ReadyToCallDrawer({ callStep, onChangeCallStep }: ReadyToCallDrawerProps) {
+export default function ReadyToCallDrawer() {
+  const navigate = useNavigate();
   const [opened, { open, close }] = useDisclosure(false);
+  const callStep = useCallStore((state) => state.callStep);
+  const setCallStep = useCallStore((state) => state.setCallStep);
 
   useEffect(() => {
     if (callStep === 1) {
       open();
     }
   }, [callStep]);
-
-  useEffect(() => {
-    const swipeHandle = document.getElementById('swape-handle');
-    if (!swipeHandle) return;
-
-    let startY = 0;
-    let endY = 0;
-
-    const handleTouchStart = (event: TouchEvent) => {
-      startY = event.touches[0].clientY;
-    };
-
-    const handleTouchMove = (event: TouchEvent) => {
-      endY = event.touches[0].clientY;
-    };
-
-    const handleTouchEnd = () => {
-      const swipeDistance = endY - startY;
-
-      if (swipeDistance > 50) {
-        onChangeCallStep(0);
-        close();
-      }
-
-      // 초기화
-      startY = 0;
-      endY = 0;
-    };
-
-    swipeHandle.addEventListener('touchstart', handleTouchStart);
-    swipeHandle.addEventListener('touchmove', handleTouchMove);
-    swipeHandle.addEventListener('touchend', handleTouchEnd);
-
-    return () => {
-      swipeHandle.removeEventListener('touchstart', handleTouchStart);
-      swipeHandle.removeEventListener('touchmove', handleTouchMove);
-      swipeHandle.removeEventListener('touchend', handleTouchEnd);
-    };
-  }, [onChangeCallStep, close]);
 
   return (
     <>
@@ -67,14 +28,17 @@ export default function ReadyToCallDrawer({ callStep, onChangeCallStep }: ReadyT
           overlay: 'md:max-w-[400px] md:mx-auto',
           content: 'rounded-t-3xl',
         }}
-        onClose={close}
+        onClose={() => {
+          setCallStep(0);
+          close();
+        }}
         size={callStep === 1 ? 460 : 300}
         withCloseButton={false}
       >
-        <div
-          id="swape-handle"
-          className="bg-[#E5E5E5] w-[140px] h-[5.2px] rounded-full mx-auto mt-1 mb-4"
-        />
+        {/* 모바일 스와이프 핸들바 */}
+        {/* <div className="bg-[#E5E5E5] w-[140px] h-[5.2px] rounded-full mx-auto mt-1 mb-4" /> */}
+        <div className="h-4"></div>
+
         <div className="flex flex-col items-center">
           {callStep === 1 && (
             <>
@@ -110,6 +74,7 @@ export default function ReadyToCallDrawer({ callStep, onChangeCallStep }: ReadyT
             }}
             fullWidth
             leftSection={<img src={CallIcon} alt="Call" />}
+            onClick={() => navigate('/calling')}
           >
             Start the Call
           </Button>

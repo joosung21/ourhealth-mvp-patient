@@ -4711,6 +4711,7 @@ __metadata:
     react-hook-form: "npm:^7.53.2"
     react-i18next: "npm:^15.1.1"
     react-router-dom: "npm:^6.28.0"
+    react-type-animation: "npm:^3.2.0"
     sass-embedded: "npm:^1.81.0"
     storybook: "npm:^8.3.5"
     storybook-dark-mode: "npm:^4.0.2"
@@ -5774,6 +5775,17 @@ __metadata:
     react: ">=16.6.0"
     react-dom: ">=16.6.0"
   checksum: 10c0/2ba754ba748faefa15f87c96dfa700d5525054a0141de8c75763aae6734af0740e77e11261a1e8f4ffc08fd9ab78510122e05c21c2d79066c38bb6861a886c82
+  languageName: node
+  linkType: hard
+
+"react-type-animation@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "react-type-animation@npm:3.2.0"
+  peerDependencies:
+    prop-types: ^15.5.4
+    react: ">= 15.0.0"
+    react-dom: ">= 15.0.0"
+  checksum: 10c0/bb8c114d9b3c81c4babe4b88ebb8b31c1e0fd7ffb39e5dce12ad20728717d3f9ba2e190e987790dc1ee95f869a909e03fd6551f1e548254e947b841c9c5ee619
   languageName: node
   linkType: hard
 

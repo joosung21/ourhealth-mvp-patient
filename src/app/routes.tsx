@@ -14,6 +14,7 @@ import AboutInterpriter from '@/views/AvailableInterpriters/AboutInterpriter';
 import AvailableInterpriters from '@/views/AvailableInterpriters/AvailableInterpriters';
 import BookingConfirmed from '@/views/AvailableInterpriters/BookingConfirmed';
 import BookTime from '@/views/BookTime/BookTime';
+import Calling from '@/views/Calling/Calling';
 import Dashboard from '@/views/Dashboard/Dashboard';
 import AppSpec from '../samples/AppSpec';
 import Color from '../samples/Color';
@@ -61,6 +62,7 @@ export default function AppRoutes() {
       <Route path="/available-interpriters" element={<AvailableInterpriters />} />
       <Route path="/available-interpriters/:id" element={<AboutInterpriter />} />
       <Route path="/booking-confirmed" element={<BookingConfirmed />} />
+      <Route path="/calling" element={<Calling />} />
 
       {/* Layout Wrapper */}
       <Route element={<Layout />}>

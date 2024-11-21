@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import { Anchor, Group, Stack } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
 import FootNav from '@/app/MobileLayout/FootNav';
 import TealHeader from '@/app/MobileLayout/TealHeader';
 import MoreIcon from '@/assets/more.svg';
+import { useCallStore } from '@/stores/useCallStore';
 import { useTranscriptStore, useUpcomingAppointmentStore } from '@/stores/useServiceStore';
 import NoAppinment from './NoAppoinment';
 import ReadyToCallDrawer from './ReadyToCallDrawer';
@@ -11,8 +10,8 @@ import ReadyToCallDrawer from './ReadyToCallDrawer';
 export default function HomeScreen() {
   const transcriptHistory = useTranscriptStore((state) => state.transcriptHistory);
   const upcomingAppointment = useUpcomingAppointmentStore((state) => state.upcomingAppointment);
-  const [opened, { open, close }] = useDisclosure(false);
-  const [callStep, setCallStep] = useState(0);
+  const callStep = useCallStore((state) => state.callStep);
+  const setCallStep = useCallStore((state) => state.setCallStep);
 
   const OpenDrawer = () => {
     setCallStep(1);
