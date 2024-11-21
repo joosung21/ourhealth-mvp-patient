@@ -1,6 +1,6 @@
 export const selectConfig = {
   defaultProps: {
-    rightSection: <img src="/icons/select-arrow.svg" className="h-[20%]" />,
+    rightSection: <img src="../public/icons/select-arrow.svg" className="h-[20%]" />,
     radius: 6,
   },
   styles: (theme: any, params: { size: string }) => ({
