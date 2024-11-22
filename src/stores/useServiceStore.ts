@@ -23,16 +23,18 @@ interface TranscriptState {
 interface UpcomingAppointmentState {
   upcomingAppointment: UpcomingAppointment | null;
   setUpcomingAppointment: (upcomingAppointment: UpcomingAppointment) => void;
+  clearUpcomingAppointment: () => void;
 }
 
 export const useTranscriptStore = create<TranscriptState>((set) => ({
-  transcriptHistory: TRANSCRIPT_HISTORY,
-  // transcriptHistory: [],
+  // transcriptHistory: TRANSCRIPT_HISTORY,
+  transcriptHistory: [],
   setTranscriptHistory: (transcriptHistory) => set({ transcriptHistory }),
 }));
 
 export const useUpcomingAppointmentStore = create<UpcomingAppointmentState>((set) => ({
-  upcomingAppointment: UPCOMING_APPOINTMENT,
-  // upcomingAppointment: null,
+  // upcomingAppointment: UPCOMING_APPOINTMENT,
+  upcomingAppointment: null,
   setUpcomingAppointment: (upcomingAppointment) => set({ upcomingAppointment }),
+  clearUpcomingAppointment: () => set({ upcomingAppointment: null }),
 }));

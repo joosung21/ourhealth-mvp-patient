@@ -10,6 +10,8 @@ export default function AboutInterpriter() {
   const { id } = useParams<{ id: string }>();
   const interpreter = INTERPRETERS.find((item) => item.id === Number(id));
 
+  window.scrollTo(0, 0);
+
   if (!interpreter) {
     return null;
   }

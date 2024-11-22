@@ -58,7 +58,14 @@ export default function BookTimePage() {
         <div className="text-dimed-more text-center mt-2">16 Interpreters Available</div>
 
         <div className="bottom-action">
-          <Button size="lg" fullWidth onClick={() => navigate('/available-interpriters')}>
+          <Button
+            size="lg"
+            fullWidth
+            onClick={() => {
+              scrollTo(0, 0);
+              navigate('/available-interpriters');
+            }}
+          >
             Confirm & Select Interpreter
           </Button>
         </div>

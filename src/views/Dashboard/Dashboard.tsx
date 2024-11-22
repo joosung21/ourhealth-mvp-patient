@@ -1,17 +1,39 @@
+import { useEffect } from 'react';
+import { c } from 'vite/dist/node/types.d-aGj9QkWt';
 import { Anchor, Group, Stack } from '@mantine/core';
 import FootNav from '@/app/MobileLayout/FootNav';
 import TealHeader from '@/app/MobileLayout/TealHeader';
 import MoreIcon from '@/assets/more.svg';
 import { useCallStore } from '@/stores/useCallStore';
 import { useTranscriptStore, useUpcomingAppointmentStore } from '@/stores/useServiceStore';
+import ActionItemDrawer from './ActionItemDrawer';
+import CallEndedDrawer from './CallEndedDrawer';
 import NoAppinment from './NoAppoinment';
 import ReadyToCallDrawer from './ReadyToCallDrawer';
 
 export default function HomeScreen() {
   const transcriptHistory = useTranscriptStore((state) => state.transcriptHistory);
   const upcomingAppointment = useUpcomingAppointmentStore((state) => state.upcomingAppointment);
+  const clearUpcomingAppointment = useUpcomingAppointmentStore(
+    (state) => state.clearUpcomingAppointment
+  );
   const callStep = useCallStore((state) => state.callStep);
   const setCallStep = useCallStore((state) => state.setCallStep);
+
+  // Step0: Default
+  // Step1: Verify the appointment via QR code
+  // Step2: Ready to call
+  // Step3: Calling
+  // Step4: Call ended
+  // Step5: Show Action items
+  // Step6: Completed
+
+  // Demonstration: if callStep is 6, setUpcomingAppointment to null
+  useEffect(() => {
+    if (callStep === 6) {
+      clearUpcomingAppointment();
+    }
+  }, [callStep]);
 
   const OpenDrawer = () => {
     setCallStep(1);
@@ -39,6 +61,9 @@ export default function HomeScreen() {
                   <div>Interpreter: Floyd Miles</div>
                   <div className="text-dimed">Reference: #NYH2024030402CA</div>
                 </div>
+              )}
+              {!upcomingAppointment && (
+                <div className="text-dimed text-sm">No upcoming appointment</div>
               )}
             </Stack>
 
@@ -73,7 +98,9 @@ export default function HomeScreen() {
         )}
       </div>
       <FootNav />
-      <ReadyToCallDrawer />
+      {[1, 2].includes(callStep) && <ReadyToCallDrawer />}
+      {callStep === 4 && <CallEndedDrawer />}
+      {callStep === 5 && <ActionItemDrawer />}
     </>
   );
 }

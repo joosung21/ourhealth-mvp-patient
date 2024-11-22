@@ -14,7 +14,7 @@ type ConversationMessage = {
 
 // Mock conversation data
 const MOCK_CONVERSATION: ConversationMessage[] = [
-  { role: 'doctor', text: 'Ha experimentado estos síntomas antes?' },
+  { role: 'doctor', text: '¿Ha experimentado estos síntomas antes?' },
   { role: 'patient', text: 'No, es la primera vez.' },
   { role: 'interpreter', text: 'No, this is the first time.' },
 
@@ -39,11 +39,12 @@ const MOCK_CONVERSATION: ConversationMessage[] = [
   { role: 'interpreter', text: 'Alright, thank you.' },
 ];
 
-export default function ReadyToCallDrawer() {
+export default function Calling() {
   const navigate = useNavigate();
   const callStep = useCallStore((state) => state.callStep);
   const setCallStep = useCallStore((state) => state.setCallStep);
 
+  // State to keep track of elapsed time in seconds
   const [elapsedTime, setElapsedTime] = useState<number>(0);
 
   // State to manage displayed messages
@@ -55,17 +56,28 @@ export default function ReadyToCallDrawer() {
   // Flag to indicate if typing is in progress
   const [isTyping, setIsTyping] = useState<boolean>(false);
 
+  // State for dialing
+  const [isDialing, setIsDialing] = useState<boolean>(true);
+
   // Ref for auto-scrolling
   const conversationEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Start the timer when the component mounts
+    // Start the elapsed time timer when the component mounts
     const timer = setInterval(() => {
       setElapsedTime((prevTime) => prevTime + 1);
     }, 1000);
 
-    // Clean up the timer when the component unmounts
-    return () => clearInterval(timer);
+    // Start dialing and set a timeout to end dialing after 5 seconds
+    const dialingTimer = setTimeout(() => {
+      setIsDialing(false);
+    }, 4000); // 5000 milliseconds = 5 seconds
+
+    // Clean up timers when the component unmounts
+    return () => {
+      clearInterval(timer);
+      clearTimeout(dialingTimer);
+    };
   }, []);
 
   // Function to format elapsed time as MM:SS
@@ -85,14 +97,15 @@ export default function ReadyToCallDrawer() {
       MOCK_CONVERSATION[currentMessageIndex],
     ]);
 
-    // Move to the next message after a short delay
-    setTimeout(() => {
-      setCurrentMessageIndex((prevIndex) => prevIndex + 1);
-      setIsTyping(false);
-    }, 0); // milliseconds delay
+    // Move to the next message immediately after typing completes
+    setCurrentMessageIndex((prevIndex) => prevIndex + 1);
+    setIsTyping(false);
   };
 
   useEffect(() => {
+    // If dialing is ongoing, do not start typing
+    if (isDialing) return;
+
     // If all messages have been displayed, do nothing
     if (currentMessageIndex >= MOCK_CONVERSATION.length) return;
 
@@ -101,7 +114,7 @@ export default function ReadyToCallDrawer() {
 
     // Start typing the next message
     setIsTyping(true);
-  }, [currentMessageIndex, isTyping]);
+  }, [currentMessageIndex, isTyping, isDialing]);
 
   // Auto-scroll to the latest message whenever displayedMessages updates
   useEffect(() => {
@@ -130,7 +143,9 @@ export default function ReadyToCallDrawer() {
           <div>
             {/* Display the formatted elapsed time */}
             <div className="text-[20px] font-[600] opacity-60">{formatTime(elapsedTime)}</div>
-            <div className="text-[32px] font-[600]">Interpreter service</div>
+            <div className="text-[32px] font-[600]">
+              {isDialing ? 'Calling ...' : 'Interpreter service'}
+            </div>
           </div>
         </div>
 
@@ -142,7 +157,7 @@ export default function ReadyToCallDrawer() {
               {displayedMessages.map((message, index) => (
                 <div key={index}>
                   {message.role === 'doctor' && (
-                    <div className="call-text-yello">{message.text}</div>
+                    <div style={{ color: '#faff00' }}>{message.text}</div>
                   )}
                   {message.role === 'patient' && <div>Patient: {message.text}</div>}
                   {message.role === 'interpreter' && <div>Interpreter: {message.text}</div>}
@@ -155,11 +170,11 @@ export default function ReadyToCallDrawer() {
                   {(() => {
                     const currentMessage = MOCK_CONVERSATION[currentMessageIndex];
                     let rolePrefix = '';
-                    let className = '';
+                    let color = '';
 
                     if (currentMessage.role === 'doctor') {
                       rolePrefix = '';
-                      className = 'call-text-yellow';
+                      color = '#faff00';
                     } else if (currentMessage.role === 'patient') {
                       rolePrefix = 'Patient: ';
                     } else if (currentMessage.role === 'interpreter') {
@@ -167,27 +182,29 @@ export default function ReadyToCallDrawer() {
                     }
 
                     return (
-                      <div className={className}>
-                        {rolePrefix}
-                        <TypeAnimation
-                          sequence={[
-                            currentMessage.text,
-                            1000, // Wait for next typing
-                            () => handleTypingComplete(),
-                          ]}
-                          wrapper="span"
-                          speed={75}
-                          cursor={false}
-                          repeat={0}
-                        />
-                      </div>
+                      <>
+                        <div style={{ color: color || 'white' }}>
+                          {rolePrefix}
+                          <TypeAnimation
+                            sequence={[
+                              currentMessage.text,
+                              1500, // Wait for 500 milliseconds after typing
+                              () => handleTypingComplete(),
+                            ]}
+                            wrapper="span"
+                            speed={75}
+                            cursor={false}
+                            repeat={0}
+                          />
+                        </div>
+                      </>
                     );
                   })()}
                 </div>
               )}
 
               {/* Dummy div for auto-scroll */}
-              <div ref={conversationEndRef} />
+              <div ref={conversationEndRef} className="mt-10" />
             </Stack>
           </div>
         </div>
