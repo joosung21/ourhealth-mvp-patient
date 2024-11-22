@@ -38,7 +38,7 @@ export default function HomeScreen() {
 
   const OpenDrawer = () => {
     setCallStep(1);
-    setTimeout(() => setCallStep(2), 1000);
+    setTimeout(() => setCallStep(2), 2000);
   };
 
   return (

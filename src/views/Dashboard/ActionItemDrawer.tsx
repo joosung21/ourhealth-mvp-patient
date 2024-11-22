@@ -35,7 +35,7 @@ export default function ActionItemDrawer() {
           content: 'rounded-t-3xl',
         }}
         onClose={() => {
-          setCallStep(5);
+          setCallStep(6);
           close();
         }}
         size={340}
