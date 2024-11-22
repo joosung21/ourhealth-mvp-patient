@@ -23,6 +23,8 @@ export default function CallEndedDrawer() {
       <Drawer
         opened={opened}
         position="bottom"
+        trapFocus={false} // 포커스 트랩 비활성화
+        returnFocus={false} // 닫힐 때 포커스 반환 비활성화
         classNames={{
           inner: 'md:max-w-[400px] left-[50%] transform translate-x-[-50%]',
           overlay: 'md:max-w-[400px] md:mx-auto',
