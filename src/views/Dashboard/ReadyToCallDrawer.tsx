@@ -61,7 +61,7 @@ export default function ReadyToCallDrawer() {
               <span className="ml-2">11:00AM</span>
             </div>
           </Group>
-          <div>Interpreter: Floyd Miles</div>
+          <div>Interpreter: Eleanor Pena</div>
           <div className="text-dimed">Reference: #NYH2024030402CA</div>
         </div>
 
