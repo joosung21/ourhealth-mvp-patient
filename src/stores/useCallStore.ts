@@ -14,6 +14,6 @@ interface CallState {
 }
 
 export const useCallStore = create<CallState>((set) => ({
-  callStep: 0,
+  callStep: 4,
   setCallStep: (callStep) => set({ callStep }),
 }));
