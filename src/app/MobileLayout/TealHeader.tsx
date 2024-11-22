@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@mantine/core';
 import Clock from '@/assets/clock-black.svg';
 import BellIcon from '@/assets/notification.svg';
 import { useTranscriptStore, useUpcomingAppointmentStore } from '@/stores/useServiceStore';
@@ -55,7 +54,7 @@ export default function TealHeader() {
             {/* <span className="absolute top-1 right-[6px] w-2 h-2 bg-[#FF0000] rounded-full"></span> */}
           </button>
         </div>
-        {(transcriptHistory.length > 0 || upcomingAppointment) && (
+        {(transcriptHistory.length > 0 || upcomingAppointment.length > 0) && (
           <div
             className="button-secondary absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 min-w-[200px]"
             onClick={() => navigate('/book-time')}

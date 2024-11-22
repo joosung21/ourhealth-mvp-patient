@@ -1,9 +1,11 @@
-export const UPCOMING_APPOINTMENT = {
-  date: '2024.05.15',
-  time: '11:00AM',
-  interpreter: 'Eleanor Pena',
-  reference: '#NYH2024112303CA',
-};
+export const UPCOMING_APPOINTMENT = [
+  {
+    date: '2024.05.15',
+    time: '11:00AM',
+    interpreter: 'Eleanor Pena',
+    reference: '#NYH2024112303CA',
+  },
+];
 
 export const TRANSCRIPT_HISTORY = [
   {

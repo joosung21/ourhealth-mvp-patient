@@ -11,11 +11,17 @@ export default function BookingConfirmed() {
   const addUpcomingAppointment = useUpcomingAppointmentStore(
     (state) => state.setUpcomingAppointment
   );
+  const upComingAppointment = useUpcomingAppointmentStore((state) => state.upcomingAppointment);
 
   const goToHome = () => {
-    addTranscriptHistory(TRANSCRIPT_HISTORY);
     addUpcomingAppointment(UPCOMING_APPOINTMENT);
-    navigate('/dashboard');
+    addTranscriptHistory(TRANSCRIPT_HISTORY);
+
+    setTimeout(() => {
+      console.log('Booking confirmed');
+      console.log('new upcoming appointment', upComingAppointment);
+      navigate('/dashboard');
+    }, 100);
   };
 
   return (

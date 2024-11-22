@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { c } from 'vite/dist/node/types.d-aGj9QkWt';
+import { J } from 'vitest/dist/chunks/reporters.D7Jzd9GS';
 import { Anchor, Group, Stack } from '@mantine/core';
 import FootNav from '@/app/MobileLayout/FootNav';
 import TealHeader from '@/app/MobileLayout/TealHeader';
@@ -28,10 +29,10 @@ export default function HomeScreen() {
   // Step5: Show Action items
   // Step6: Completed
 
-  // Demonstration: if callStep is 6, setUpcomingAppointment to null
   useEffect(() => {
     if (callStep === 6) {
       clearUpcomingAppointment();
+      setCallStep(0);
     }
   }, [callStep]);
 
@@ -45,24 +46,24 @@ export default function HomeScreen() {
       <TealHeader />
 
       <div className="container !pt-[200px] !pb-[120px]">
-        {upcomingAppointment || transcriptHistory.length > 0 ? (
+        {upcomingAppointment.length > 0 || transcriptHistory.length > 0 ? (
           <>
             <div className="text-sub-title mb-3 mt-6">Upcoming Appointment</div>
             <Stack gap="md">
-              {upcomingAppointment && (
-                <div className="card primary" onClick={OpenDrawer}>
+              {upcomingAppointment.map((item, index) => (
+                <div className="card primary" key={index} onClick={OpenDrawer}>
                   <Group justify="space-between" className="mb-1">
                     <div className="font-[600]">
-                      2024.05.15
-                      <span className="ml-2">11:00AM</span>
+                      {item.date}
+                      <span className="ml-2">{item.time}</span>
                     </div>
                     <img src={MoreIcon} alt="More Options" />
                   </Group>
-                  <div>Interpreter: Floyd Miles</div>
-                  <div className="text-dimed">Reference: #NYH2024030402CA</div>
+                  <div>Interpreter: {item.interpreter}</div>
+                  <div className="text-dimed">Reference: {item.reference}</div>
                 </div>
-              )}
-              {!upcomingAppointment && (
+              ))}
+              {upcomingAppointment.length === 0 && (
                 <div className="text-dimed text-sm">No upcoming appointment</div>
               )}
             </Stack>
