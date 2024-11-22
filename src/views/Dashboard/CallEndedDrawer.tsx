@@ -34,7 +34,7 @@ export default function CallEndedDrawer() {
           setCallStep(5);
           close();
         }}
-        size={610}
+        size={593}
         withCloseButton={false}
       >
         {/* 모바일 스와이프 핸들바 */}
@@ -61,7 +61,7 @@ export default function CallEndedDrawer() {
               size="md"
               data-autofocus
               classNames={{
-                input: 'h-[160px]',
+                input: 'h-[140px]',
               }}
             />
           </div>
