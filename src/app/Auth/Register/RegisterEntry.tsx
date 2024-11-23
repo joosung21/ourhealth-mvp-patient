@@ -185,10 +185,9 @@ export default function RegisterEntry() {
           >
             Continue with Email
           </Button>
+          <InstallButton />
         </Stack>
       </form>
-
-      <InstallButton />
     </div>
   );
 }

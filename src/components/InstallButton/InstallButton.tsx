@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { ArrowDownOnSquareIcon } from '@heroicons/react/24/outline';
+import { Button } from '@mantine/core';
 
 export default function InstallButton() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
@@ -29,39 +31,33 @@ export default function InstallButton() {
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
     if (outcome === 'accepted') {
-      console.log('사용자가 PWA 설치를 수락했습니다.');
+      console.log('User accepted the A2HS prompt');
     } else {
-      console.log('사용자가 PWA 설치를 취소했습니다.');
+      console.log('User dismissed the A2HS prompt');
     }
     setDeferredPrompt(null);
   };
 
   if (isInstalled) {
-    return null; // 이미 설치된 경우 버튼을 숨깁니다.
+    return null; // Hide the button if the app is already installed
   }
 
   return (
     <div>
       {deferredPrompt && (
-        <button onClick={handleInstallClick} style={styles.button}>
-          앱 설치
-        </button>
+        <div className="mx-auto">
+          <Button
+            className="mt-auto"
+            variant="light"
+            size="lg"
+            fullWidth
+            onClick={handleInstallClick}
+            leftSection={<ArrowDownOnSquareIcon className="w-6 h-6" />}
+          >
+            Install OurHealth App
+          </Button>
+        </div>
       )}
     </div>
   );
 }
-
-const styles = {
-  button: {
-    position: 'fixed' as 'fixed',
-    bottom: '20px',
-    right: '20px',
-    padding: '10px 20px',
-    backgroundColor: '#6200ea',
-    color: '#ffffff',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    zIndex: 1000,
-  },
-};
