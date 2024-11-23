@@ -106,6 +106,7 @@ export default function RegisterInformation() {
                   placeholder="MM-DD-YYYY"
                   inputMode="numeric"
                   pattern="[0-9\-]*"
+                  enterKeyHint="done"
                   onChange={(e) => {
                     const formatted = formatBirthday(e.target.value);
                     setValue('birthday', formatted);
