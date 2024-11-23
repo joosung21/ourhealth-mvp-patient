@@ -5,6 +5,7 @@ import { Button, Divider, Group, Select, SelectProps, Stack, TextInput } from '@
 import AppleIcon from '@/assets/icon-apple.svg';
 import EmailIcon from '@/assets/icon-email.svg';
 import GoogleIcon from '@/assets/icon-google.svg';
+import InstallButton from '@/components/InstallButton/InstallButton';
 import COUNTRY_CODES from '@/constants/countrycode.json';
 
 type CountryCode = {
@@ -186,6 +187,8 @@ export default function RegisterEntry() {
           </Button>
         </Stack>
       </form>
+
+      <InstallButton />
     </div>
   );
 }
