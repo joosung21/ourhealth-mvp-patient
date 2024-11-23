@@ -30,8 +30,9 @@ export default function RegisterName() {
   const onSubmit = (values: FormValues) => {
     console.log(values);
 
-    const firstName = values.firstName.charAt(0).toUpperCase() + values.firstName.slice(1);
-    const lastName = values.lastName.charAt(0).toUpperCase() + values.lastName.slice(1);
+    const firstName =
+      values.firstName.charAt(0).toUpperCase() + values.firstName.slice(1).toLowerCase;
+    const lastName = values.lastName.charAt(0).toUpperCase() + values.lastName.slice(1).toLowerCase;
 
     setUserFirstName(firstName);
     setUserLastName(lastName);
