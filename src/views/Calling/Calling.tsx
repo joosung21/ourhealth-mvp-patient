@@ -204,7 +204,7 @@ export default function Calling() {
               )}
 
               {/* Dummy div for auto-scroll */}
-              <div ref={conversationEndRef} className="mt-11" />
+              <div ref={conversationEndRef} className="mt-[60px]" />
             </Stack>
           </div>
         </div>
