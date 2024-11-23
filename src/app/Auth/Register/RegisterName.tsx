@@ -29,8 +29,12 @@ export default function RegisterName() {
   // 폼 제출 핸들러
   const onSubmit = (values: FormValues) => {
     console.log(values);
-    setUserFirstName(values.firstName);
-    setUserLastName(values.lastName);
+
+    const firstName = values.firstName.charAt(0).toUpperCase() + values.firstName.slice(1);
+    const lastName = values.lastName.charAt(0).toUpperCase() + values.lastName.slice(1);
+
+    setUserFirstName(firstName);
+    setUserLastName(lastName);
     navigate('/register-information');
   };
 
