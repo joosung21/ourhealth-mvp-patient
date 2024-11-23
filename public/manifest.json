@@ -3,7 +3,7 @@
   "short_name": "OurHealth",
   "description": "Real-time interpretation app connecting healthcare providers with patients of limited English proficiency, enhancing accessibility and communication.",
   "theme_color": "#266770",
-  "background_color": "#266770",
+  "background_color": "transparent",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
