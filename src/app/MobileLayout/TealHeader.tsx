@@ -1,8 +1,10 @@
+import dayjs from 'dayjs';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Clock from '@/assets/clock-black.svg';
 import BellIcon from '@/assets/notification.svg';
 import { useTranscriptStore, useUpcomingAppointmentStore } from '@/stores/useServiceStore';
+import { useUserStore } from '@/stores/useUserStore';
 
 export default function TealHeader() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -10,6 +12,18 @@ export default function TealHeader() {
   const headerRef = useRef(null);
   const transcriptHistory = useTranscriptStore.getState().transcriptHistory;
   const upcomingAppointment = useUpcomingAppointmentStore.getState().upcomingAppointment;
+  const fullName = useUserStore((state) => state.fullName);
+
+  const greeting = () => {
+    const currentHour = dayjs().hour();
+    if (currentHour < 12) {
+      return 'Good Morning,';
+    } else if (currentHour < 18) {
+      return 'Good Afternoon,';
+    } else {
+      return 'Good Evening,';
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,8 +59,8 @@ export default function TealHeader() {
         className="tealHeader"
       >
         <div className="flex-1">
-          <p className="text-white text-[14.56px]">Good Morning,</p>
-          <p className="text-white font-semibold text-[21px]">Savannah Nguyen</p>
+          <p className="text-white text-[14.56px]">{greeting()}</p>
+          <p className="text-white font-semibold text-[21px]">{fullName}</p>
         </div>
         <div className="ml-auto">
           <button className="relative p-1 mt-1">

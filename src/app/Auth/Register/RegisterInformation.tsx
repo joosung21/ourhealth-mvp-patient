@@ -27,7 +27,8 @@ export default function RegisterInformation() {
     healthCardNumber: {
       required: 'health card number is required',
       pattern: {
-        value: /^\d{10}$/,
+        // 0000-000-000
+        value: /^\d{4}-\d{3}-\d{3}$/,
         message: 'Must be exactly 10 digits',
       },
     },
@@ -60,6 +61,21 @@ export default function RegisterInformation() {
     navigate('/register-complete');
   };
 
+  // 4-3-3 format
+  const formatCardNumber = (value: string) => {
+    // Remove all non-digit characters
+    let cleaned = value.replace(/\D/g, '');
+
+    // Apply formatting
+    if (cleaned.length > 4 && cleaned.length <= 7) {
+      cleaned = `${cleaned.slice(0, 4)}-${cleaned.slice(4)}`;
+    } else if (cleaned.length > 7) {
+      cleaned = `${cleaned.slice(0, 4)}-${cleaned.slice(4, 7)}-${cleaned.slice(7, 10)}`;
+    }
+
+    return cleaned;
+  };
+
   const formatBirthday = (value: string) => {
     // Remove all non-digit characters
     let cleaned = value.replace(/\D/g, '');
@@ -86,14 +102,27 @@ export default function RegisterInformation() {
                 providers.
               </p>
             </div>
-            <TextInput
-              size="md"
-              label="Health Card Number"
-              placeholder="10 digits"
-              inputMode="numeric"
-              {...register('healthCardNumber', rules.healthCardNumber)}
-              error={errors.healthCardNumber && errors.healthCardNumber.message}
+            <Controller
+              control={control}
+              name="healthCardNumber"
+              rules={rules.healthCardNumber}
+              render={({ field }) => (
+                <TextInput
+                  {...field}
+                  size="md"
+                  label="Health Card Number"
+                  placeholder="10 digits"
+                  inputMode="numeric"
+                  pattern="[0-9\-]*"
+                  onChange={(e) => {
+                    const formatted = formatCardNumber(e.target.value);
+                    setValue('healthCardNumber', formatted);
+                  }}
+                  error={errors.healthCardNumber && errors.healthCardNumber.message}
+                />
+              )}
             />
+
             <Controller
               control={control}
               name="birthday"

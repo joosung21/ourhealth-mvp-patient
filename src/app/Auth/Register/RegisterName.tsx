@@ -1,6 +1,7 @@
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { Button, Stack, TextInput } from '@mantine/core';
+import { useUserStore } from '@/stores/useUserStore';
 
 interface FormValues {
   firstName: string;
@@ -9,6 +10,8 @@ interface FormValues {
 
 export default function RegisterName() {
   const navigate = useNavigate();
+  const setUserFirstName = useUserStore((state) => state.setFirstName);
+  const setUserLastName = useUserStore((state) => state.setLastName);
 
   // react-hook-form 초기화
   const {
@@ -26,6 +29,8 @@ export default function RegisterName() {
   // 폼 제출 핸들러
   const onSubmit = (values: FormValues) => {
     console.log(values);
+    setUserFirstName(values.firstName);
+    setUserLastName(values.lastName);
     navigate('/register-information');
   };
 
@@ -76,11 +81,13 @@ export default function RegisterName() {
                 {...field}
                 size="md"
                 label="Last Name"
+                enterKeyHint="done"
                 placeholder="Last Name"
                 error={errors.lastName && errors.lastName.message}
               />
             )}
           />
+          <button type="submit" style={{ display: 'none' }} />
         </Stack>
       </form>
       <div className="bottom-action mt-auto">
