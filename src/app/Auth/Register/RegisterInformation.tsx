@@ -115,13 +115,14 @@ export default function RegisterInformation() {
                 />
               )}
             />
+            <button type="submit" style={{ display: 'none' }} />
           </Stack>
+          <div className="bottom-action">
+            <Button size="lg" onClick={handleSubmit(onSubmit)}>
+              Next
+            </Button>
+          </div>
         </form>
-        <div className="bottom-action">
-          <Button size="lg" onClick={handleSubmit(onSubmit)}>
-            Next
-          </Button>
-        </div>
       </div>
     </>
   );
