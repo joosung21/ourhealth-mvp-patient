@@ -4,7 +4,7 @@
   "description": "Real-time interpretation app connecting healthcare providers with patients of limited English proficiency, enhancing accessibility and communication.",
   "theme_color": "#transparent",
   "background_color": "#266770",
-  "display": "standalone",
+  "display": "fullscreen",
   "scope": "/",
   "start_url": "/",
   "icons": [
