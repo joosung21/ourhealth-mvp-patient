@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { a } from 'vitest/dist/chunks/suite.B2jumIFP';
 import { Button, Stack } from '@mantine/core';
 import Booked from '@/assets/booked.svg';
 import { TRANSCRIPT_HISTORY, UPCOMING_APPOINTMENT } from '@/mocks/appoinmets';

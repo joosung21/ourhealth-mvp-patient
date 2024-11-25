@@ -20,9 +20,8 @@ export default function TealHeader() {
       return 'Good Morning,';
     } else if (currentHour < 18) {
       return 'Good Afternoon,';
-    } else {
-      return 'Good Evening,';
     }
+    return 'Good Evening,';
   };
 
   useEffect(() => {
@@ -45,7 +44,7 @@ export default function TealHeader() {
 
   // 부드러운 높이 계산 (Ease Out Quad 인터폴레이션)
   const calculateHeight = () => {
-    return initialHeight + (finalHeight - initialHeight) * (1 - Math.pow(1 - scrollProgress, 2));
+    return initialHeight + (finalHeight - initialHeight) * (1 - (1 - scrollProgress) ** 2);
   };
 
   return (
@@ -69,13 +68,14 @@ export default function TealHeader() {
           </div>
         </div>
         {(transcriptHistory.length > 0 || upcomingAppointment.length > 0) && (
-          <div
-            className="button-secondary absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 min-w-[200px]"
+          <button
+            type="button"
+            className="button-secondary absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 min-w-[200px] flex items-center justify-center"
             onClick={() => navigate('/book-time')}
           >
             <img src={Clock} alt="Clock" className="inline-block mr-2" />
             Book Appointment
-          </div>
+          </button>
         )}
       </div>
     </>

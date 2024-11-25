@@ -11,14 +11,11 @@ export default function FeatureTitle({ title }: FeatureTitleProps) {
   return (
     <div className="feature-title">
       <Group justify="space-between">
-        <img
-          src={ArrowLeft}
-          alt="Go Back"
-          className="cursor-pointer inline-block p-1"
-          onClick={() => navigate(-1)}
-        />
+        <button type="button" className="p-1" onClick={() => navigate(-1)} aria-label="Go Back">
+          <img src={ArrowLeft} alt="" className="inline-block" />
+        </button>
         <div className="font-semibold text-xl">{title}</div>
-        <div className="w-8"></div>
+        <div className="w-8" />
       </Group>
     </div>
   );

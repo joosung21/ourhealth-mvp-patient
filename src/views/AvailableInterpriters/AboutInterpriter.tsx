@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { Button, Center, Group, Stack } from '@mantine/core';
+import { Button, Group, Stack } from '@mantine/core';
 import GoIcon from '@/assets/go.svg';
 import StarOn from '@/assets/star-on.svg';
 import FeatureTitle from '@/components/FeatureTitle/FeatureTile';

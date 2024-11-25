@@ -21,10 +21,10 @@ export default function NoAppinment() {
         alt="No Appointment"
       />
       <div>No upcoming appointment</div>
-      <div className="button-secondary" onClick={() => navigate('/book-time')}>
+      <button type="button" className="button-secondary" onClick={() => navigate('/book-time')}>
         <img src={Clock} alt="Clock" className="inline-block mr-2" />
         Book Appointment
-      </div>
+      </button>
     </Flex>
   );
 }

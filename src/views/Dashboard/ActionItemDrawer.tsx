@@ -1,9 +1,6 @@
 import { useEffect } from 'react';
-import { Button, Drawer, Group, Rating, Stack, Textarea } from '@mantine/core';
+import { Button, Drawer, Group, Stack } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import StarOn from '@/assets/star-on.svg';
-import StarOff from '@/assets/star.svg';
-import { INTERPRETERS } from '@/mocks/interpreters';
 import { useCallStore } from '@/stores/useCallStore';
 
 const MOCK_ACTIONS = [
@@ -43,7 +40,7 @@ export default function ActionItemDrawer() {
       >
         {/* 모바일 스와이프 핸들바 */}
         {/* <div className="bg-[#E5E5E5] w-[140px] h-[5.2px] rounded-full mx-auto mt-1 mb-4" /> */}
-        <div className="h-4"></div>
+        <div className="h-4" />
 
         <div className="flex flex-col items-center gap-4">
           <div className="text-xl font-semibold mb-1">Action Items</div>

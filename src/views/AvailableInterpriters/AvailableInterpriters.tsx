@@ -15,7 +15,9 @@ export default function AvailableInterpriters() {
   useEffect(() => {
     const container = containerRef.current;
 
-    if (!container) return;
+    if (!container) {
+      return;
+    }
 
     const handleScroll = () => {
       const { scrollTop, scrollHeight, clientHeight } = container;
@@ -52,10 +54,12 @@ export default function AvailableInterpriters() {
       </Center>
       <Stack>
         {INTERPRETERS.map((interpreter, index) => (
-          <div
+          <button
             key={index}
-            className="rounded-[6px] border px-5 py-4 cursor-pointer hover:bg-gray-100 transition"
+            type="button" // 명시적인 type 속성 추가
+            className="rounded-[6px] border px-5 py-4 cursor-pointer hover:bg-gray-100 transition flex w-full text-left"
             onClick={() => navigate(`/available-interpriters/${interpreter.id}`)}
+            aria-label={`View availability of ${interpreter.name}`}
           >
             <Group>
               <img
@@ -68,7 +72,7 @@ export default function AvailableInterpriters() {
                 <div className="text-dimed-more font-[500]">Available until 11:35AM</div>
               </div>
             </Group>
-          </div>
+          </button>
         ))}
       </Stack>
     </div>

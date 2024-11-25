@@ -43,7 +43,7 @@ export default function HomeScreen() {
             <div className="text-sub-title mb-3 mt-6">Upcoming Appointment</div>
             <Stack gap="md">
               {upcomingAppointment.map((item, index) => (
-                <div className="card primary" key={index} onClick={OpenDrawer}>
+                <button type="button" className="card primary" key={index} onClick={OpenDrawer}>
                   <Group justify="space-between" className="mb-1">
                     <div className="font-[600]">
                       {item.date}
@@ -53,7 +53,7 @@ export default function HomeScreen() {
                   </Group>
                   <div>Interpreter: {item.interpreter}</div>
                   <div className="text-dimed">Reference: {item.reference}</div>
-                </div>
+                </button>
               ))}
               {upcomingAppointment.length === 0 && (
                 <div className="text-dimed text-sm">No upcoming appointment</div>

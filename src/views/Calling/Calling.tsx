@@ -41,7 +41,6 @@ const MOCK_CONVERSATION: ConversationMessage[] = [
 
 export default function Calling() {
   const navigate = useNavigate();
-  const callStep = useCallStore((state) => state.callStep);
   const setCallStep = useCallStore((state) => state.setCallStep);
 
   // State to keep track of elapsed time in seconds
@@ -104,13 +103,19 @@ export default function Calling() {
 
   useEffect(() => {
     // If dialing is ongoing, do not start typing
-    if (isDialing) return;
+    if (isDialing) {
+      return;
+    }
 
     // If all messages have been displayed, do nothing
-    if (currentMessageIndex >= MOCK_CONVERSATION.length) return;
+    if (currentMessageIndex >= MOCK_CONVERSATION.length) {
+      return;
+    }
 
     // If already typing, do nothing
-    if (isTyping) return;
+    if (isTyping) {
+      return;
+    }
 
     // Start typing the next message
     setIsTyping(true);
@@ -215,15 +220,17 @@ export default function Calling() {
             <div className="cursor-pointer">
               <img src={SpeakerButton} alt="Speaker" />
             </div>
-            <div
-              className="cursor-pointer"
+            <button
+              type="button"
+              className="cursor-pointer bg-transparent border-none p-0"
               onClick={() => {
                 setCallStep(4);
                 navigate('/dashboard');
               }}
+              aria-label="End Call"
             >
-              <img src={CallEndButton} alt="Call End" />
-            </div>
+              <img src={CallEndButton} alt="" />
+            </button>
             <div className="cursor-pointer">
               <img src={MicButton} alt="Mic" />
             </div>
