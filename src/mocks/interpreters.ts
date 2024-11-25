@@ -1,5 +1,3 @@
-import { i } from 'vite/dist/node/types.d-aGj9QkWt';
-
 export const INTERPRETERS = [
   {
     id: 1,

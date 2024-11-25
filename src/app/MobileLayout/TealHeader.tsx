@@ -63,10 +63,10 @@ export default function TealHeader() {
           <p className="text-white font-semibold text-[21px]">{fullName}</p>
         </div>
         <div className="ml-auto">
-          <button className="relative p-1 mt-1">
+          <div className="relative p-1 mt-1">
             <img src={BellIcon} alt="Notification" />
             {/* <span className="absolute top-1 right-[6px] w-2 h-2 bg-[#FF0000] rounded-full"></span> */}
-          </button>
+          </div>
         </div>
         {(transcriptHistory.length > 0 || upcomingAppointment.length > 0) && (
           <div

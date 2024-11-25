@@ -2,10 +2,10 @@ import SelectIcon from '@/assets/select-arrow.svg';
 
 export const selectConfig = {
   defaultProps: {
-    rightSection: <img src={SelectIcon} className="h-[20%]" />,
+    rightSection: <img src={SelectIcon} className="h-[20%]" alt="select arrow" />,
     radius: 6,
   },
-  styles: (theme: any, params: { size: string }) => ({
+  styles: (params: { size: string }) => ({
     input: {
       height: params.size === 'md' ? 48 : 'auto',
     },
@@ -16,7 +16,7 @@ export const selectConfig = {
 };
 
 export const textInputConfig = {
-  styles: (theme: any, params: { size: string }) => ({
+  styles: (params: { size: string }) => ({
     input: {
       height: params.size === 'md' ? 48 : 'auto',
       borderRadius: 6,
@@ -30,10 +30,10 @@ export const textInputConfig = {
 
 export const comboboxConfig = {
   defaultProps: {
-    rightSection: <img src={SelectIcon} className="h-[20%]" />,
+    rightSection: <img src={SelectIcon} className="h-[20%]" alt="select arrow" />,
   },
 
-  styles: (theme: any, params: { size: string }) => ({
+  styles: () => ({
     dropdown: {
       borderRadius: 6,
     },

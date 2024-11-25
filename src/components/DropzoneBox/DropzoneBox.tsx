@@ -1,6 +1,6 @@
 // import { IconPhoto, IconUpload, IconX } from '@tabler/icons-react';
 import { CloudArrowUpIcon, DocumentArrowDownIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Group, rem, Text } from '@mantine/core';
+import { Group, Text } from '@mantine/core';
 import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from '@mantine/dropzone';
 
 export default function DropzoneBox(props: Partial<DropzoneProps>) {

@@ -29,7 +29,9 @@ const INIT_VALUES = {
 // Select 옵션 렌더링 함수
 const renderSelectOption: SelectProps['renderOption'] = ({ option, checked }) => {
   const item = COUNTRY_CODES.find((item) => item.code === option.value);
-  if (!item) return option.value;
+  if (!item) {
+    return option.value;
+  }
 
   return (
     <Group flex="1" gap="xs">
@@ -62,7 +64,6 @@ export default function RegisterEntry() {
   const {
     control,
     handleSubmit,
-    setValue,
     formState: { errors },
   } = useForm<FormValues>({
     defaultValues: INIT_VALUES,
@@ -97,11 +98,7 @@ export default function RegisterEntry() {
 
   const getDialCode = (code: string) => {
     const dialCodeItem = COUNTRY_CODES.find((item) => item.code === code);
-    return dialCodeItem ? (
-      <div className="tracking-[-1px]">{dialCodeItem.dial_code}</div>
-    ) : (
-      <div></div>
-    );
+    return dialCodeItem ? <div className="tracking-[-1px]">{dialCodeItem.dial_code}</div> : <div />;
   };
 
   return (

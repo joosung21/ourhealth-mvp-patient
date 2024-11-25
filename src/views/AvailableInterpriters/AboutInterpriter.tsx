@@ -69,11 +69,11 @@ export default function AboutInterpriter() {
           <Group align="center" gap="xs" className="mt-2">
             <div className="text-xs font-[500] text-dimed-more">May 20, 2024</div>
             <Group gap={2} className="-mt-[3px]">
-              <img src={StarOn} />
-              <img src={StarOn} />
-              <img src={StarOn} />
-              <img src={StarOn} />
-              <img src={StarOn} />
+              <img src={StarOn} alt="review star" />
+              <img src={StarOn} alt="review star" />
+              <img src={StarOn} alt="review star" />
+              <img src={StarOn} alt="review star" />
+              <img src={StarOn} alt="review star" />
             </Group>
           </Group>
         </div>

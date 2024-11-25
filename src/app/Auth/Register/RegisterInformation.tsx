@@ -10,7 +10,6 @@ interface FormValues {
 export default function RegisterInformation() {
   const navigate = useNavigate();
   const {
-    register,
     handleSubmit,
     control,
     setValue,

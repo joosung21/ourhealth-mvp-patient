@@ -28,8 +28,6 @@ export default function RegisterName() {
 
   // 폼 제출 핸들러
   const onSubmit = (values: FormValues) => {
-    console.log(values);
-
     const firstName =
       values.firstName.charAt(0).toUpperCase() + values.firstName.slice(1).toLowerCase();
     const lastName =

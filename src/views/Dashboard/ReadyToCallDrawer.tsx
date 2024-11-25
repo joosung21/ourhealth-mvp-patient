@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Drawer, Group, Stack } from '@mantine/core';
+import { Button, Drawer, Group } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import CallIcon from '@/assets/call.svg';
 import MockQR from '@/assets/mock-qr.png';
@@ -37,7 +37,7 @@ export default function ReadyToCallDrawer() {
       >
         {/* 모바일 스와이프 핸들바 */}
         {/* <div className="bg-[#E5E5E5] w-[140px] h-[5.2px] rounded-full mx-auto mt-1 mb-4" /> */}
-        <div className="h-4"></div>
+        <div className="h-4" />
 
         <div className="flex flex-col items-center">
           {callStep === 1 && (

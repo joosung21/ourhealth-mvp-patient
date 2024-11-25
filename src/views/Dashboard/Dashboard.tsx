@@ -1,6 +1,4 @@
 import { useEffect } from 'react';
-import { c } from 'vite/dist/node/types.d-aGj9QkWt';
-import { J } from 'vitest/dist/chunks/reporters.D7Jzd9GS';
 import { Anchor, Group, Stack } from '@mantine/core';
 import FootNav from '@/app/MobileLayout/FootNav';
 import TealHeader from '@/app/MobileLayout/TealHeader';
